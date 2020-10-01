@@ -36,7 +36,7 @@ class PatientListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.patient_list_fragment, container, false)
-      //  getData()
+        getData()
         return view
     }
 
