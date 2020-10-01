@@ -62,6 +62,10 @@ class DonorListFragment : Fragment() {
                     )
                 }
                 setRecyclerview()
+            }.addOnCompleteListener {
+                spinKit.visibility = View.GONE
+            }.addOnCompleteListener {
+                spinKit.visibility = View.GONE
             }
     }
 
