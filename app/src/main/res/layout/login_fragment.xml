@@ -54,7 +54,7 @@
         android:hint="Password"
         android:singleLine="true"
         android:imeOptions="actionDone"
-        android:password="true"
+        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@id/tvLoginButton"
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
