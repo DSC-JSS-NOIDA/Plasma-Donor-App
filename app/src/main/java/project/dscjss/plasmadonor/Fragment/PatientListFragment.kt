@@ -65,6 +65,10 @@ class PatientListFragment : Fragment() {
                     )
                 }
                 setRecyclerview()
+            }.addOnCompleteListener {
+                spinKitP.visibility = View.GONE
+            }.addOnCompleteListener {
+                spinKitP.visibility = View.GONE
             }
     }
 
