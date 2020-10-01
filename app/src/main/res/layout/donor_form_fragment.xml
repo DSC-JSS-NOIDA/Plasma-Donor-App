@@ -43,7 +43,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:inputType="number"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:hint="Age" />
@@ -53,7 +52,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:inputType="text"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:hint="Gender" />
@@ -63,7 +61,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:inputType="text"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:hint="Location" />
@@ -73,7 +70,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:inputType="phone"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:hint="Mobile" />
@@ -83,7 +79,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
-                android:inputType="textEmailAddress"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp"
                 android:hint="Email ID" />
