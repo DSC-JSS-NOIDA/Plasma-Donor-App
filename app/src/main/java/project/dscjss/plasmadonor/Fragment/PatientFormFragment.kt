@@ -44,7 +44,7 @@ class PatientFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Name cannot be blank!")
                 return@setOnClickListener
             }
-            if(etBloodGrp.text.isBlank()){
+            if(spBloodGroup.selectedItemPosition==0){
                 Utilities.showShortToast(requireContext(),"Blood Group cannot be blank!")
                 return@setOnClickListener
             }
@@ -52,7 +52,7 @@ class PatientFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Age cannot be blank!")
                 return@setOnClickListener
             }
-            if(etGender.text.isBlank()){
+            if(spGender.selectedItemPosition==0){
                 Utilities.showShortToast(requireContext(),"Gender cannot be blank!")
                 return@setOnClickListener
             }
@@ -79,11 +79,11 @@ class PatientFormFragment : Fragment() {
         var PatientDetails = HashMap<String, String>()
         PatientDetails["Name"] = etName.text.toString()
         PatientDetails["Age"] = etAge.text.toString()
-        PatientDetails["Gender"] = etGender.text.toString()
+        PatientDetails["Gender"] = spGender.selectedItem.toString()
         PatientDetails["Location"] = etLocation.text.toString()
         PatientDetails["Hospital"] = etHospital.text.toString()
         PatientDetails["Mobile"] = etMobile.text.toString()
-        PatientDetails["BloodGroup"] = etBloodGrp.text.toString()
+        PatientDetails["BloodGroup"] = spBloodGroup.selectedItem.toString()
         PatientDetails["Diabetes"] = cbDiabetes.isChecked.toString()
         PatientDetails["BpProblem"] = cbBpProblem.isChecked.toString()
         PatientDetails["LiverProblem"] = cbLiver.isChecked.toString()
@@ -109,11 +109,11 @@ class PatientFormFragment : Fragment() {
 
         etName.setText("")
         etAge.setText("")
-        etGender.setText("")
+        spGender.setSelection(0)
         etHospital.setText("")
         etLocation.setText("")
         etMobile.setText("")
-        etBloodGrp.setText("")
+        spBloodGroup.setSelection(0)
         etEmail.setText("")
         if (cbDiabetes.isChecked) cbDiabetes.isChecked = false
         if (cbBpProblem.isChecked) cbBpProblem.isChecked = false

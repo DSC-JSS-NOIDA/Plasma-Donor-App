@@ -13,4 +13,22 @@
     <string name="verify_screen_logo">Verify Screen Logo</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+
+    <string-array name="gender">
+        <item>Select Gender</item>
+        <item>Female</item>
+        <item>Male</item>
+    </string-array>
+
+    <string-array name="blood_group">
+        <item>Select Blood Group</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>0+</item>
+        <item>0-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
 </resources>

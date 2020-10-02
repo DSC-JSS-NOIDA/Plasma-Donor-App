@@ -28,15 +28,15 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp" />
 
-            <EditText
-                android:id="@+id/etBloodGrp"
-                android:hint="Blood Group"
+
+            <Spinner
+                android:id="@+id/spBloodGroup"
+                android:entries="@array/blood_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp" />
-
+                android:layout_marginEnd="16dp"/>
 
             <EditText
                 android:id="@+id/etAge"
@@ -47,14 +47,16 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp" />
 
-            <EditText
-                android:id="@+id/etGender"
-                android:hint="Gender"
+            <Spinner
+                android:id="@+id/spGender"
+                android:entries="@array/gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginEnd="16dp">
+
+            </Spinner>
 
             <EditText
                 android:id="@+id/etLocation"

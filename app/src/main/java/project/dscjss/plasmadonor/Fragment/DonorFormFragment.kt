@@ -15,9 +15,9 @@ import kotlinx.android.synthetic.main.patient_form_fragment.cbBpProblem
 import kotlinx.android.synthetic.main.patient_form_fragment.cbDiabetes
 import kotlinx.android.synthetic.main.patient_form_fragment.cbLiver
 import kotlinx.android.synthetic.main.patient_form_fragment.etAge
-import kotlinx.android.synthetic.main.patient_form_fragment.etBloodGrp
+import kotlinx.android.synthetic.main.donor_form_fragment.spGender
 import kotlinx.android.synthetic.main.patient_form_fragment.etEmail
-import kotlinx.android.synthetic.main.patient_form_fragment.etGender
+import kotlinx.android.synthetic.main.donor_form_fragment.spBloodGroup
 import kotlinx.android.synthetic.main.patient_form_fragment.etLocation
 import kotlinx.android.synthetic.main.patient_form_fragment.etMobile
 import kotlinx.android.synthetic.main.patient_form_fragment.etName
@@ -54,7 +54,7 @@ class DonorFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Name cannot be blank!")
                 return@setOnClickListener
             }
-            if(etBloodGrp.text.isBlank()){
+            if(spBloodGroup.selectedItemPosition==0){
                 Utilities.showShortToast(requireContext(),"Blood Group cannot be blank!")
                 return@setOnClickListener
             }
@@ -62,7 +62,7 @@ class DonorFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Age cannot be blank!")
                 return@setOnClickListener
             }
-            if(etGender.text.isBlank()){
+            if(spGender.selectedItemPosition==0){
                 Utilities.showShortToast(requireContext(),"Gender cannot be blank!")
                 return@setOnClickListener
             }
@@ -88,10 +88,10 @@ class DonorFormFragment : Fragment() {
         var donorDetails = HashMap<String, String>()
         donorDetails["Name"] = etName.text.toString()
         donorDetails["Age"] = etAge.text.toString()
-        donorDetails["Gender"] = etGender.text.toString()
+        donorDetails["Gender"] = spGender.selectedItem.toString()
         donorDetails["Location"] = etLocation.text.toString()
         donorDetails["Mobile"] = etMobile.text.toString()
-        donorDetails["BloodGroup"] = etBloodGrp.text.toString()
+        donorDetails["BloodGroup"] = spBloodGroup.selectedItem.toString()
         donorDetails["Diabetes"] = cbDiabetes.isChecked.toString()
         donorDetails["BpProblem"] = cbBpProblem.isChecked.toString()
         donorDetails["LiverProblem"] = cbLiver.isChecked.toString()
@@ -117,11 +117,12 @@ class DonorFormFragment : Fragment() {
 
         etName.setText("")
         etAge.setText("")
-        etGender.setText("")
         etLocation.setText("")
         etMobile.setText("")
-        etBloodGrp.setText("")
         etEmail.setText("")
+        spGender.setSelection(0)
+        spBloodGroup.setSelection(0)
+
         if (cbDiabetes.isChecked) cbDiabetes.isChecked = false
         if (cbBpProblem.isChecked) cbBpProblem.isChecked = false
         if (cbLiver.isChecked) cbLiver.isChecked = false
