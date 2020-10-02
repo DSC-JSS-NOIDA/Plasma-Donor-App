@@ -6,8 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.github.ybq.android.spinkit.SpinKitView
+import com.github.ybq.android.spinkit.style.Circle
+import com.github.ybq.android.spinkit.style.CubeGrid
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
@@ -31,6 +35,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private val RC_SIGN_IN = 101
     private val TAG = "Login Fragment"
     private lateinit var googleSignInClient: GoogleSignInClient
+
+    lateinit var alertDialog: AlertDialog
 
     companion object {
         fun newInstance() = LoginFragment()
@@ -57,6 +63,18 @@ class LoginFragment : Fragment(), View.OnClickListener {
         tvLoginButton.setOnClickListener(this)
         tvLoginGmail.setOnClickListener(this)
 
+        val progressBar: SpinKitView = SpinKitView(requireContext())
+        val cube = Circle()
+        progressBar.setIndeterminateDrawable(cube)
+        progressBar.setColor(R.color.colorPrimary)
+
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setCancelable(false)
+        builder.setView(progressBar)
+
+        alertDialog = builder.setCancelable(false).create()
+        alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
+
     }
 
     private fun signInGmail() {
@@ -82,6 +100,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                         .whereEqualTo("uid", user!!.uid)
                     docRef.get()
                         .addOnSuccessListener { document ->
+                            alertDialog.dismiss()
                             if (document.size() == 0) {
                                 Log.d(TAG, "No such User")
 
@@ -103,28 +122,30 @@ class LoginFragment : Fragment(), View.OnClickListener {
                                     .add(userHash)
                                     .addOnCompleteListener {
                                         if (it.isSuccessful) {
-                                            utilities.showShortToast(context!!, "Data Inserted")
+                                            utilities.showShortToast(requireContext(), "Data Inserted")
 
                                             startActivity(Intent(context, MainActivity::class.java))
-                                            activity!!.finish()
+                                            requireActivity().finish()
 
                                         }
                                     }
 
                             } else {
+                                alertDialog.dismiss()
                                 startActivity(Intent(context, MainActivity::class.java))
-                                activity!!.finish()
+                                requireActivity().finish()
                             }
 
                         }
                         .addOnFailureListener { exception ->
+                            alertDialog.dismiss()
                             Log.e(TAG, "get failed with ", exception)
                         }
 
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
-                    utilities.showShortToast(context!!, "Login Failed: ${task.exception}")
+                    utilities.showShortToast(requireContext(), "Login Failed: ${task.exception}")
                 }
 
             }
@@ -141,13 +162,13 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 // Google Sign In was successful, authenticate with Firebase
                 val account = task.getResult(ApiException::class.java)!!
                 Log.d(TAG, "firebaseAuthWithGoogle: ${account.displayName}")
-                utilities.showShortToast(context!!, "Login Success: ${account.displayName}")
+                utilities.showShortToast(requireContext(), "Login Success: ${account.displayName}")
 
                 firebaseAuthWithGoogle(account.idToken!!)
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed ${e.message}", e)
-                utilities.showShortToast(context!!, "Login Failed: ${e.message}")
+                utilities.showShortToast(requireContext(), "Login Failed: ${e.message}")
             }
         }
     }
@@ -202,14 +223,15 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
                 firebaseAuth.sendPasswordResetEmail(etEmailLogin.text.toString())
                     .addOnSuccessListener {
-                        utilities.showShortToast(context!!, "Please check your Email")
+                        utilities.showShortToast(requireContext(), "Please check your Email")
                     }
                     .addOnFailureListener {
-                        utilities.showShortToast(context!!, it.message + "")
+                        utilities.showShortToast(requireContext(), it.message + "")
                     }
             }
 
             R.id.tvLoginButton -> {
+                alertDialog.show()
                 if (!checkFields())
                     return
 
@@ -218,23 +240,27 @@ class LoginFragment : Fragment(), View.OnClickListener {
                     etPasswordLogin.text.toString()
                 )
                     .addOnSuccessListener {
-                        utilities.showShortToast(context!!, "Login Success: ${it.user!!.displayName}")
+                        alertDialog.dismiss()
+                        utilities.showShortToast(requireContext(), "Login Success: ${it.user!!.displayName}")
                         startActivity(Intent(context, MainActivity::class.java))
-                        activity!!.finish()
+                        requireActivity().finish()
                     }
                     .addOnFailureListener {
-                        utilities.showShortToast(context!!, it.message + "")
+                        alertDialog.dismiss()
+                        utilities.showShortToast(requireContext(), it.message + "")
                     }
             }
 
             R.id.tvLoginGmail -> {
+
+                alertDialog.show()
 
                 val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                     .requestIdToken(getString(R.string.default_web_client_id))
                     .requestEmail()
                     .build()
 
-                googleSignInClient = GoogleSignIn.getClient(activity!!, gso)
+                googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
 
                 signInGmail()
 

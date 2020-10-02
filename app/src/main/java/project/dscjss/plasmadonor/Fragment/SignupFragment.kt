@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.github.ybq.android.spinkit.SpinKitView
+import com.github.ybq.android.spinkit.style.Circle
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.firestore.FirebaseFirestore
@@ -27,6 +30,9 @@ class SignupFragment : Fragment(), View.OnClickListener{
     private lateinit var firebaseAuth: FirebaseAuth
     val TAG = "Signup Fragment"
 
+    lateinit var alertDialog: AlertDialog
+
+
     companion object {
         fun newInstance() = SignupFragment()
     }
@@ -42,6 +48,18 @@ class SignupFragment : Fragment(), View.OnClickListener{
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
+
+        val progressBar: SpinKitView = SpinKitView(requireContext())
+        val cube = Circle()
+        progressBar.setIndeterminateDrawable(cube)
+        progressBar.setColor(R.color.colorPrimary)
+
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setCancelable(false)
+        builder.setView(progressBar)
+
+        alertDialog = builder.setCancelable(false).create()
+        alertDialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
         init()
 
@@ -84,7 +102,7 @@ class SignupFragment : Fragment(), View.OnClickListener{
                 if (it.isSuccessful) {
                     Toast.makeText(context, "Data Inserted", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(context, MainActivity::class.java))
-                    activity!!.finish()
+                    requireActivity().finish()
                 }
                 else {
                     addDetails()
@@ -165,18 +183,23 @@ class SignupFragment : Fragment(), View.OnClickListener{
             }
 
             R.id.tvSignUpButton -> {
+
+                alertDialog.show()
+
                 if (!checkFields()) {
                     return
                 }
                 firebaseAuth.createUserWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
                     .addOnCompleteListener {
                         it.addOnSuccessListener {
+                            alertDialog.dismiss()
                             // Sign Up Success Dialog
-                            utilities.showShortToast(context!!, "User Created")
+                            utilities.showShortToast(requireContext(), "User Created")
                             addDetails()
                         }
                         it.addOnFailureListener { e ->
-                            utilities.showShortToast(context!!, e.message.toString())
+                            alertDialog.dismiss()
+                            utilities.showShortToast(requireContext(), e.message.toString())
                         }
                     }
             }
