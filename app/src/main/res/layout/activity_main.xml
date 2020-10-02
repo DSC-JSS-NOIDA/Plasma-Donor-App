@@ -13,6 +13,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/splashIcon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@mipmap/ic_launcher_round"/>
+
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
