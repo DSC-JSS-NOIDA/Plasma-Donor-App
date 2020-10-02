@@ -57,7 +57,7 @@ class DonorListFragment : Fragment() {
                     val bpProblem = i["BpProblem"].toString()
 
                     donorList.add(
-                        DonorModel(name,age,gender,location,bloodGroup,
+                        DonorModel(name,age,gender,bloodGroup,location,
                             mobile,email,diabetes,liverProblem,bpProblem)
                     )
                 }
