@@ -1,10 +1,12 @@
 package project.dscjss.plasmadonor.Fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.*
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -29,6 +31,9 @@ class DonorFormFragment : Fragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseFirestore: FirebaseFirestore
+    lateinit var spinnerGender: Spinner
+    lateinit var spinnerBloodGrp: Spinner
+
 
     companion object {
         private const val TAG = "DonorForm"
@@ -41,14 +46,16 @@ class DonorFormFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.donor_form_fragment, container, false)
+        val view = inflater.inflate(R.layout.donor_form_fragment, container, false)
+        return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         init()
         // TODO: Use the ViewModel
-
+        setBloodGrpSpinner()
+        setGenderSpinner()
         btSubmit.setOnClickListener {
             if(etName.text.isBlank()){
                 Utilities.showShortToast(requireContext(),"Name cannot be blank!")
@@ -83,15 +90,111 @@ class DonorFormFragment : Fragment() {
         }
     }
 
+    private fun spinnerAdapter(spinnerType : Array<String>): ArrayAdapter<String> {
+        var adapter = object : ArrayAdapter<String>(
+            requireContext(), R.layout.spinner_text_layout,
+            spinnerType
+        ) {
+
+            override fun getDropDownView(
+                position: Int,
+                convertView: View?,
+                parent: ViewGroup
+            ): View {
+
+                val dropdownView = super.getDropDownView(position, convertView, parent) as TextView
+
+
+                if (position == 0) {
+                    dropdownView.setTextColor(resources.getColor(R.color.colorHint))
+
+                } else {
+                    dropdownView.setTextColor(resources.getColor(R.color.colorPrimary))
+                }
+
+                return dropdownView
+            }
+
+        }
+        return adapter
+    }
+
+    private fun setGenderSpinner() {
+
+        spinnerGender = view?.findViewById(R.id.sp_gender) as Spinner
+
+        spinnerGender.adapter = spinnerAdapter(resources.getStringArray(R.array.gender))
+
+        spinnerGender.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(view: AdapterView<*>?) {
+            }
+
+
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                p3: Long
+            ) {
+
+                var selectedText = adapterView?.getChildAt(0) as TextView
+
+
+                if (adapterView.getItemAtPosition(position).toString() == "Gender") {
+                    selectedText.setTextColor(resources.getColor(R.color.colorHint))
+                } else {
+                    selectedText.setTextColor(Color.BLACK)
+                }
+
+
+            }
+        }
+
+    }
+
+
+
+    private fun setBloodGrpSpinner() {
+
+        spinnerBloodGrp = view?.findViewById(R.id.sp_bloodGrp) as Spinner
+
+        spinnerBloodGrp.adapter = spinnerAdapter(resources.getStringArray(R.array.blood_grp))
+
+        spinnerBloodGrp.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(view: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                p3: Long
+            ) {
+
+                var selectedText = adapterView?.getChildAt(0) as TextView
+
+
+                if (adapterView.getItemAtPosition(position).toString() == "Blood Group") {
+                    selectedText.setTextColor(resources.getColor(R.color.colorHint))
+                } else {
+                    selectedText.setTextColor(Color.BLACK)
+                }
+
+
+            }
+        }
+
+    }
+
 
     private fun insertData() {
         var donorDetails = HashMap<String, String>()
         donorDetails["Name"] = etName.text.toString()
         donorDetails["Age"] = etAge.text.toString()
-        donorDetails["Gender"] = etGender.text.toString()
+        donorDetails["Gender"] = spinnerGender.selectedItem.toString()
         donorDetails["Location"] = etLocation.text.toString()
         donorDetails["Mobile"] = etMobile.text.toString()
-        donorDetails["BloodGroup"] = etBloodGrp.text.toString()
+        donorDetails["BloodGroup"] = spinnerBloodGrp.selectedItem.toString()
         donorDetails["Diabetes"] = cbDiabetes.isChecked.toString()
         donorDetails["BpProblem"] = cbBpProblem.isChecked.toString()
         donorDetails["LiverProblem"] = cbLiver.isChecked.toString()

@@ -23,97 +23,113 @@
                 android:id="@+id/etName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="30dp"
                 android:hint="Name" />
 
-            <EditText
-                android:id="@+id/etBloodGrp"
+            <Spinner
+                android:id="@+id/sp_bloodGrp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:hint="Blood Group" />
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@color/colorGray" />
 
             <EditText
                 android:id="@+id/etAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:hint="Age" />
+                android:layout_marginEnd="30dp"
+                android:hint="Age"
+                android:inputType="number" />
 
-            <EditText
-                android:id="@+id/etGender"
+            <Spinner
+                android:id="@+id/sp_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:hint="Gender" />
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="30dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:background="@color/colorGray" />
+
 
             <EditText
                 android:id="@+id/etLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="30dp"
                 android:hint="Location" />
 
             <EditText
                 android:id="@+id/etMobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
-                android:hint="Mobile" />
+                android:layout_marginEnd="30dp"
+                android:hint="Mobile"
+                android:inputType="number" />
 
             <EditText
                 android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="16dp"
+                android:layout_marginEnd="30dp"
                 android:hint="Email ID" />
 
+
             <CheckBox
+
                 android:id="@+id/cbDiabetes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="Diabetes"
-                android:layout_marginStart="16dp"
-                android:textSize="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
                 android:paddingStart="10dp"
-                android:layout_marginTop="10dp" />
+                android:text="Diabetes"
+                android:textSize="20dp" />
 
 
             <CheckBox
                 android:id="@+id/cbLiver"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:text="Liver Problem"
-                android:textSize="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
                 android:paddingStart="10dp"
-                android:layout_marginTop="10dp" />
+                android:text="Liver Problem"
+                android:textSize="20dp" />
 
 
             <CheckBox
                 android:id="@+id/cbBpProblem"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:text="BP Problem"
-                android:textSize="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="10dp"
                 android:paddingStart="10dp"
-                android:layout_marginTop="10dp"/>
+                android:text="BP Problem"
+                android:textSize="20dp" />
 
             <View
                 android:layout_width="match_parent"
