@@ -1,10 +1,15 @@
 package project.dscjss.plasmadonor.Fragment
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+import android.widget.Spinner
+import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -17,6 +22,8 @@ class PatientFormFragment : Fragment() {
 
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseFirestore: FirebaseFirestore
+    lateinit var spinnerGender: Spinner
+    lateinit var spinnerBloodGrp: Spinner
 
     companion object {
         private const val TAG = "PatientForm"
@@ -35,6 +42,8 @@ class PatientFormFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         init()
+        setBloodGrpSpinner()
+        setGenderSpinner()
         // TODO: Use the ViewModel
 
         btSubmit.setOnClickListener {
@@ -43,7 +52,7 @@ class PatientFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Name cannot be blank!")
                 return@setOnClickListener
             }
-            if(etBloodGrp.text.isBlank()){
+            if(spinnerBloodGrp.selectedItemPosition==0){
                 Utilities.showShortToast(requireContext(),"Blood Group cannot be blank!")
                 return@setOnClickListener
             }
@@ -51,7 +60,7 @@ class PatientFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Age cannot be blank!")
                 return@setOnClickListener
             }
-            if(etGender.text.isBlank()){
+            if(spinnerGender.selectedItemPosition==0){
                 Utilities.showShortToast(requireContext(),"Gender cannot be blank!")
                 return@setOnClickListener
             }
@@ -74,17 +83,112 @@ class PatientFormFragment : Fragment() {
 
     }
 
+    private fun spinnerAdapter(spinnerType : Array<String>): ArrayAdapter<String> {
+        var adapter = object : ArrayAdapter<String>(
+            requireContext(), R.layout.spinner_text_layout,
+            spinnerType
+        ) {
+
+            override fun getDropDownView(
+                position: Int,
+                convertView: View?,
+                parent: ViewGroup
+            ): View {
+
+                val dropdownView = super.getDropDownView(position, convertView, parent) as TextView
+
+
+                if (position == 0) {
+                    dropdownView.setTextColor(resources.getColor(R.color.colorHint))
+
+                } else {
+                    dropdownView.setTextColor(resources.getColor(R.color.colorPrimary))
+                }
+
+                return dropdownView
+            }
+
+        }
+        return adapter
+    }
+
+    private fun setGenderSpinner() {
+
+        spinnerGender = view?.findViewById(R.id.sp_gender) as Spinner
+
+        spinnerGender.adapter = spinnerAdapter(resources.getStringArray(R.array.gender))
+
+        spinnerGender.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(view: AdapterView<*>?) {
+            }
+
+
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                p3: Long
+            ) {
+
+                var selectedText = adapterView?.getChildAt(0) as TextView
+
+
+                if (adapterView.getItemAtPosition(position).toString() == "Gender") {
+                    selectedText.setTextColor(resources.getColor(R.color.colorHint))
+                } else {
+                    selectedText.setTextColor(Color.BLACK)
+                }
+
+
+            }
+        }
+
+    }
+
+
+    private fun setBloodGrpSpinner() {
+
+        spinnerBloodGrp = view?.findViewById(R.id.sp_bloodGrp) as Spinner
+
+        spinnerBloodGrp.adapter = spinnerAdapter(resources.getStringArray(R.array.blood_grp))
+
+        spinnerBloodGrp.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(view: AdapterView<*>?) {
+            }
+
+            override fun onItemSelected(
+                adapterView: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                p3: Long
+            ) {
+
+                var selectedText = adapterView?.getChildAt(0) as TextView
+
+
+                if (adapterView.getItemAtPosition(position).toString() == "Blood Group") {
+                    selectedText.setTextColor(resources.getColor(R.color.colorHint))
+                } else {
+                    selectedText.setTextColor(Color.BLACK)
+                }
+
+
+            }
+        }
+
+    }
+
 
 
     private fun insertData() {
         var PatientDetails = HashMap<String, String>()
         PatientDetails["Name"] = etName.text.toString()
         PatientDetails["Age"] = etAge.text.toString()
-        PatientDetails["Gender"] = etGender.text.toString()
+        PatientDetails["Gender"] = spinnerGender.selectedItem.toString()
         PatientDetails["Location"] = etLocation.text.toString()
         PatientDetails["Hospital"] = etHospital.text.toString()
         PatientDetails["Mobile"] = etMobile.text.toString()
-        PatientDetails["BloodGroup"] = etBloodGrp.text.toString()
+        PatientDetails["BloodGroup"] = spinnerBloodGrp.selectedItem.toString()
         PatientDetails["Diabetes"] = cbDiabetes.isChecked.toString()
         PatientDetails["BpProblem"] = cbBpProblem.isChecked.toString()
         PatientDetails["LiverProblem"] = cbLiver.isChecked.toString()
@@ -110,11 +214,11 @@ class PatientFormFragment : Fragment() {
 
         etName.setText("")
         etAge.setText("")
-        etGender.setText("")
+        spinnerGender.setSelection(0)
         etHospital.setText("")
         etLocation.setText("")
         etMobile.setText("")
-        etBloodGrp.setText("")
+        spinnerBloodGrp.setSelection(0)
         etEmail.setText("")
         if (cbDiabetes.isChecked) cbDiabetes.isChecked = false
         if (cbBpProblem.isChecked) cbBpProblem.isChecked = false

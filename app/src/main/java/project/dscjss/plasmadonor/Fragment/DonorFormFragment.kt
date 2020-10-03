@@ -11,18 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.donor_form_fragment.*
-import kotlinx.android.synthetic.main.patient_form_fragment.*
-import kotlinx.android.synthetic.main.patient_form_fragment.btSubmit
-import kotlinx.android.synthetic.main.patient_form_fragment.cbBpProblem
-import kotlinx.android.synthetic.main.patient_form_fragment.cbDiabetes
-import kotlinx.android.synthetic.main.patient_form_fragment.cbLiver
-import kotlinx.android.synthetic.main.patient_form_fragment.etAge
-import kotlinx.android.synthetic.main.patient_form_fragment.etBloodGrp
-import kotlinx.android.synthetic.main.patient_form_fragment.etEmail
-import kotlinx.android.synthetic.main.patient_form_fragment.etGender
-import kotlinx.android.synthetic.main.patient_form_fragment.etLocation
-import kotlinx.android.synthetic.main.patient_form_fragment.etMobile
-import kotlinx.android.synthetic.main.patient_form_fragment.etName
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
 import project.dscjss.plasmadonor.ViewModel.DonorFormViewModel
@@ -61,7 +49,7 @@ class DonorFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Name cannot be blank!")
                 return@setOnClickListener
             }
-            if(etBloodGrp.text.isBlank()){
+            if(spinnerBloodGrp.selectedItemPosition==0){
                 Utilities.showShortToast(requireContext(),"Blood Group cannot be blank!")
                 return@setOnClickListener
             }
@@ -69,7 +57,7 @@ class DonorFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Age cannot be blank!")
                 return@setOnClickListener
             }
-            if(etGender.text.isBlank()){
+            if(spinnerGender.selectedItemPosition==0){
                 Utilities.showShortToast(requireContext(),"Gender cannot be blank!")
                 return@setOnClickListener
             }
@@ -220,10 +208,10 @@ class DonorFormFragment : Fragment() {
 
         etName.setText("")
         etAge.setText("")
-        etGender.setText("")
+        spinnerGender.setSelection(0)
         etLocation.setText("")
         etMobile.setText("")
-        etBloodGrp.setText("")
+        spinnerBloodGrp.setSelection(0)
         etEmail.setText("")
         if (cbDiabetes.isChecked) cbDiabetes.isChecked = false
         if (cbBpProblem.isChecked) cbBpProblem.isChecked = false
