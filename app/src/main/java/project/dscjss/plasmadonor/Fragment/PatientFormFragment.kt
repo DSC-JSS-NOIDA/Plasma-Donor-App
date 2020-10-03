@@ -16,6 +16,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.patient_form_fragment.*
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
+import project.dscjss.plasmadonor.Util.isPhoneNumberValid
 import project.dscjss.plasmadonor.ViewModel.PatientFormViewModel
 
 class PatientFormFragment : Fragment() {
@@ -68,8 +69,11 @@ class PatientFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Location cannot be blank!")
                 return@setOnClickListener
             }
-            if(etMobile.text.isBlank()){
+            if(etMobile.text.isBlank() || isPhoneNumberValid(etMobile.text.toString())){
                 Utilities.showShortToast(requireContext(),"Mobile cannot be blank!")
+                return@setOnClickListener
+            } else if (!isPhoneNumberValid(etMobile.text.toString())) {
+                Utilities.showShortToast(requireContext(),"Mobile no. invalid!")
                 return@setOnClickListener
             }
             if(etEmail.text.isBlank()){

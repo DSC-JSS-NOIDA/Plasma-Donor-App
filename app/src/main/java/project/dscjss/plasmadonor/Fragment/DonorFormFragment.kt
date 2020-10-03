@@ -13,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.donor_form_fragment.*
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
+import project.dscjss.plasmadonor.Util.isPhoneNumberValid
 import project.dscjss.plasmadonor.ViewModel.DonorFormViewModel
 
 class DonorFormFragment : Fragment() {
@@ -66,6 +67,9 @@ class DonorFormFragment : Fragment() {
             }
             if(etMobile.text.isBlank()){
                 Utilities.showShortToast(requireContext(),"Mobile cannot be blank!")
+                return@setOnClickListener
+            } else if (!isPhoneNumberValid(etMobile.text.toString())) {
+                Utilities.showShortToast(requireContext(),"Mobile no. invalid!")
                 return@setOnClickListener
             }
             if(etEmail.text.isBlank()){
