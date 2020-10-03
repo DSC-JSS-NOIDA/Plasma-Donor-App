@@ -7,15 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.patient_list_fragment.*
-import kotlinx.android.synthetic.main.profile_fragment.*
 import project.dscjss.plasmadonor.Adapter.PatientListAdapter
 import project.dscjss.plasmadonor.Model.PatientModel
 import project.dscjss.plasmadonor.R
@@ -36,11 +30,11 @@ class PatientListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.patient_list_fragment, container, false)
-        getData()
         return view
     }
 
     private fun getData(){
+        progress_circular.visibility = View.VISIBLE
         firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseFirestore.collection("patients")
             .get().addOnSuccessListener {doc->
@@ -64,6 +58,7 @@ class PatientListFragment : Fragment() {
                             bloodGroup,mobile,email,diabetes,liverProblem,bpProblem)
                     )
                 }
+                progress_circular.visibility = View.GONE
                 setRecyclerview()
             }
     }
@@ -77,6 +72,8 @@ class PatientListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(PatientListViewModel::class.java)
         // TODO: Use the ViewModel
+
+        getData()
     }
 
 }

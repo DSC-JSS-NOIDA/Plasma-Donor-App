@@ -2,6 +2,7 @@ package project.dscjss.plasmadonor.Fragment
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -84,7 +85,7 @@ class SignupFragment : Fragment(), View.OnClickListener{
                 if (it.isSuccessful) {
                     Toast.makeText(context, "Data Inserted", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(context, MainActivity::class.java))
-                    activity!!.finish()
+                    activity?.finish()
                 }
                 else {
                     addDetails()
@@ -98,6 +99,11 @@ class SignupFragment : Fragment(), View.OnClickListener{
 
         if (etEmail.text.isNullOrEmpty()) {
             etEmail.error = "Email can't be empty"
+            etEmail.requestFocus()
+            return false
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(etEmail.text.toString()).matches()) {
+            etEmail.error = "Invalid email format"
             etEmail.requestFocus()
             return false
         }
@@ -159,26 +165,28 @@ class SignupFragment : Fragment(), View.OnClickListener{
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.tvLogin -> {
-                fragmentChangeInterface.changeFragment(LoginFragment())
-            }
-
-            R.id.tvSignUpButton -> {
-                if (!checkFields()) {
-                    return
+        v?.also { ui ->
+            when (ui.id) {
+                R.id.tvLogin -> {
+                    fragmentChangeInterface.changeFragment(LoginFragment())
                 }
-                firebaseAuth.createUserWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
-                    .addOnCompleteListener {
-                        it.addOnSuccessListener {
-                            // Sign Up Success Dialog
-                            utilities.showShortToast(context!!, "User Created")
-                            addDetails()
-                        }
-                        it.addOnFailureListener { e ->
-                            utilities.showShortToast(context!!, e.message.toString())
-                        }
+
+                R.id.tvSignUpButton -> {
+                    if (!checkFields()) {
+                        return
                     }
+                    firebaseAuth.createUserWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
+                        .addOnCompleteListener {
+                            it.addOnSuccessListener {
+                                // Sign Up Success Dialog
+                                utilities.showShortToast(requireContext(), "User Created")
+                                addDetails()
+                            }
+                            it.addOnFailureListener { e ->
+                                utilities.showShortToast(requireContext(), e.message.toString())
+                            }
+                        }
+                }
             }
         }
     }

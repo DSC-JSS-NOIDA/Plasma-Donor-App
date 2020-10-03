@@ -13,4 +13,24 @@
     <string name="verify_screen_logo">Verify Screen Logo</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="plasma_donor">PLASMA DONOR</string>
+    <string name="blood_group">Blood Group</string>
+    <string name="gender">Gender</string>
+    <string-array name="blood_group_array">
+        <item>@string/blood_group</item>
+        <item>A+</item>
+        <item>A-</item>
+        <item>B+</item>
+        <item>B-</item>
+        <item>O+</item>
+        <item>O-</item>
+        <item>AB+</item>
+        <item>AB-</item>
+    </string-array>
+    <string-array name="gender_array">
+        <item>@string/gender</item>
+        <item>Female</item>
+        <item>Male</item>
+        <item>Other</item>
+    </string-array>
 </resources>

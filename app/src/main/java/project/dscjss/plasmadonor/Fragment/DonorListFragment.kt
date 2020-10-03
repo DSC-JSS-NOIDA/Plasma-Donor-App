@@ -9,13 +9,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.donor_list_fragment.*
-import kotlinx.android.synthetic.main.donor_list_item.*
-import kotlinx.android.synthetic.main.patient_list_fragment.*
-import kotlinx.android.synthetic.main.patient_list_fragment.patientListRecyclerView
 import project.dscjss.plasmadonor.Adapter.DonorListAdapter
-import project.dscjss.plasmadonor.Adapter.PatientListAdapter
 import project.dscjss.plasmadonor.Model.DonorModel
-import project.dscjss.plasmadonor.Model.PatientModel
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.ViewModel.DonorListViewModel
 
@@ -34,11 +29,11 @@ class DonorListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.donor_list_fragment, container, false)
-        getData()
         return view
     }
 
     private fun getData(){
+        progress_circular.visibility = View.VISIBLE
         firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseFirestore.collection("donors")
             .get().addOnSuccessListener {doc->
@@ -57,10 +52,11 @@ class DonorListFragment : Fragment() {
                     val bpProblem = i["BpProblem"].toString()
 
                     donorList.add(
-                        DonorModel(name,age,gender,location,bloodGroup,
+                        DonorModel(name,age,gender,bloodGroup,location,
                             mobile,email,diabetes,liverProblem,bpProblem)
                     )
                 }
+                progress_circular.visibility = View.GONE
                 setRecyclerview()
             }
     }
@@ -75,6 +71,7 @@ class DonorListFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(DonorListViewModel::class.java)
         // TODO: Use the ViewModel
+        getData()
     }
 
 }

@@ -24,18 +24,21 @@
                 android:hint="Name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp" />
+                android:layout_marginEnd="16dp"
+                android:inputType="textPersonName"/>
 
-            <EditText
-                android:id="@+id/etBloodGrp"
-                android:hint="Blood Group"
+            <Spinner
+                android:id="@+id/spBloodGrp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp" />
+                android:layout_marginEnd="16dp"
+                android:spinnerMode="dropdown"
+                android:entries="@array/blood_group_array"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined"/>
 
 
             <EditText
@@ -43,36 +46,40 @@
                 android:hint="Age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp" />
+                android:layout_marginEnd="16dp"
+                android:inputType="number"
+                android:digits="0123456789"/>
 
-            <EditText
-                android:id="@+id/etGender"
-                android:hint="Gender"
+            <Spinner
+                android:id="@+id/spGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp" />
+                android:layout_marginEnd="16dp"
+                android:spinnerMode="dropdown"
+                android:entries="@array/gender_array"
+                style="@style/Base.Widget.AppCompat.Spinner.Underlined" />
 
             <EditText
                 android:id="@+id/etLocation"
                 android:hint="Location"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp" />
+                android:layout_marginEnd="16dp" />
 
             <EditText
                 android:id="@+id/etHospital"
                 android:hint="Hospital"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp" />
+                android:layout_marginEnd="16dp" />
 
 
             <EditText
@@ -80,24 +87,27 @@
                 android:hint="Mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp" />
+                android:layout_marginEnd="16dp"
+                android:inputType="phone"
+                android:digits="0123456789+"/>
 
             <EditText
                 android:id="@+id/etEmail"
                 android:hint="Email ID"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginEnd="30dp" />
+                android:layout_marginEnd="16dp"
+                android:inputType="textEmailAddress"/>
 
             <CheckBox
                 android:id="@+id/cbDiabetes"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:text="Diabetes"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp"
@@ -107,7 +117,7 @@
                 android:id="@+id/cbLiver"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:text="Liver Problem"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp"
@@ -118,7 +128,7 @@
                 android:id="@+id/cbBpProblem"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="16dp"
                 android:text="BP Problem"
                 android:textSize="20dp"
                 android:layout_marginTop="10dp"
