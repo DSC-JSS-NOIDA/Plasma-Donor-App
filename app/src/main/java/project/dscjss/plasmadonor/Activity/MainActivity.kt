@@ -26,11 +26,6 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
         setContentView(R.layout.activity_main)
 
         init()
-
-
-
-
-
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.mainFrame, ProfileFragment())
 //            .commit()

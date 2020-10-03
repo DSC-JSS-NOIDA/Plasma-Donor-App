@@ -22,7 +22,6 @@ class DonorFormFragment : Fragment() {
     lateinit var spinnerGender: Spinner
     lateinit var spinnerBloodGrp: Spinner
 
-
     companion object {
         private const val TAG = "DonorForm"
         fun newInstance() = DonorFormFragment()
