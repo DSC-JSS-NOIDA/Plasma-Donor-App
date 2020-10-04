@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -18,8 +19,9 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        hideStatusBar()
         setContentView(R.layout.activity_splash)
+
+        hideStatusBar()
 
         firebaseAuth = FirebaseAuth.getInstance()
 
@@ -34,6 +36,7 @@ class SplashActivity : AppCompatActivity() {
         }, 2500)
     }
 
+    @Suppress("DEPRECATION")
     private fun hideStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.insetsController?.hide(WindowInsets.Type.statusBars())
