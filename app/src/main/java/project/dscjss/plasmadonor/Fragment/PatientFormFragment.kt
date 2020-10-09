@@ -53,17 +53,17 @@ class PatientFormFragment : Fragment() {
                 Utilities.showShortToast(requireContext(),"Name cannot be blank!")
                 return@setOnClickListener
             }
-            if(spinnerBloodGrp.selectedItemPosition==0){
-                Utilities.showShortToast(requireContext(),"Blood Group cannot be blank!")
-                return@setOnClickListener
+            if(spinnerBloodGrp?.selectedItem.toString().equals(getString(R.string.blood_group), true)){
+                (spinnerBloodGrp.selectedView as TextView).error = "Select Blood Group"
+                check = true
             }
             if(etAge.text.isBlank()){
                 Utilities.showShortToast(requireContext(),"Age cannot be blank!")
                 return@setOnClickListener
             }
-            if(spinnerGender.selectedItemPosition==0){
-                Utilities.showShortToast(requireContext(),"Gender cannot be blank!")
-                return@setOnClickListener
+            if(spinnerGender?.selectedItem.toString().equals(getString(R.string.gender), true)){
+                (spinnerGender.selectedView as TextView).error = "Select Gender"
+                check = true
             }
             if(etLocation.text.isBlank()){
                 Utilities.showShortToast(requireContext(),"Location cannot be blank!")
@@ -82,10 +82,6 @@ class PatientFormFragment : Fragment() {
             }
 
             insertData()
-
-        }
-
-    }
 
     private fun spinnerAdapter(spinnerType : Array<String>): ArrayAdapter<String> {
         var adapter = object : ArrayAdapter<String>(
