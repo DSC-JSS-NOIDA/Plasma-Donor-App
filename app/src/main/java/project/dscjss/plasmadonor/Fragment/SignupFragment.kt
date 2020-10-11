@@ -95,17 +95,16 @@ class SignupFragment : Fragment(), View.OnClickListener{
     }
 
     private fun checkFields(): Boolean {
-
-
+        var isValid = true
         if (etEmail.text.isNullOrEmpty()) {
             etEmail.error = "Email can't be empty"
             etEmail.requestFocus()
-            return false
+            isValid = false
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(etEmail.text.toString()).matches()) {
             etEmail.error = "Invalid email format"
             etEmail.requestFocus()
-            return false
+            isValid = false
         }
         else {
             etEmail.error = null
@@ -116,7 +115,7 @@ class SignupFragment : Fragment(), View.OnClickListener{
         if (etFirstName.text.isNullOrEmpty()) {
             etFirstName.error = "Email can't be empty"
             etFirstName.requestFocus()
-            return false
+            isValid = false
         }
         else {
             etFirstName.error = null
@@ -127,7 +126,7 @@ class SignupFragment : Fragment(), View.OnClickListener{
         if (etLastName.text.isNullOrEmpty()) {
             etLastName.error = "Email can't be empty"
             etLastName.requestFocus()
-            return false
+            isValid = false
         }
         else {
             etLastName.clearFocus()
@@ -137,7 +136,7 @@ class SignupFragment : Fragment(), View.OnClickListener{
         if (etPhone.text.isNullOrEmpty()) {
             etPhone.error = "Email can't be empty"
             etPhone.requestFocus()
-            return false
+            isValid = false
         }
         else {
             etPhone.clearFocus()
@@ -148,19 +147,19 @@ class SignupFragment : Fragment(), View.OnClickListener{
         if (etPassword.text.isNullOrEmpty()) {
             etPassword.error = "Email can't be empty"
             etPassword.requestFocus()
-            return false
+            isValid = false
         }
         else if (etPassword.text.length < 8) {
             etPassword.error = "Password must be 8 digits long"
             etPassword.requestFocus()
-            return false
+            isValid = false
         }
         else {
             etPassword.error = null
             etPassword.clearFocus()
         }
 
-        return true
+        return isValid
 
     }
 
