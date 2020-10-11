@@ -47,13 +47,20 @@
         android:textSize="16dp"
         android:padding="14dp"/>
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etPasswordLogin_layout"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/tvLoginButton"
-        android:layout_marginStart="22dp"
-        android:layout_marginEnd="22dp"
+        app:layout_constraintStart_toStartOf="@id/etEmailLogin"
+        app:layout_constraintEnd_toStartOf="@id/guideline"
         android:layout_marginBottom="24dp"
         app:passwordToggleEnabled="true" >
 
@@ -74,10 +81,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Forgot?"
+        android:gravity="center"
         android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="@id/etPasswordLogin"
-        app:layout_constraintTop_toTopOf="@id/etPasswordLogin"
-        app:layout_constraintBottom_toBottomOf="@id/etPasswordLogin"
+        app:layout_constraintStart_toEndOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="@id/etPasswordLogin_layout"
+        app:layout_constraintBottom_toBottomOf="@id/etPasswordLogin_layout"
         android:layout_marginEnd="10dp"
         android:textSize="12dp"
         android:textStyle="bold"
