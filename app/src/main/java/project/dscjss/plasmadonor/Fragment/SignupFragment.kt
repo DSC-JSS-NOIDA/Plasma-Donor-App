@@ -150,7 +150,7 @@ class SignupFragment : Fragment(), View.OnClickListener{
             etPassword.requestFocus()
             return false
         }
-        else if (etPassword.text.length < 8) {
+        else if (etPassword.length() < 8) {
             etPassword.error = "Password must be 8 digits long"
             etPassword.requestFocus()
             return false
