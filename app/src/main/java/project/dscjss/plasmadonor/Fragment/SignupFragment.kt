@@ -20,9 +20,9 @@ import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
 import project.dscjss.plasmadonor.ViewModel.SignupViewModel
 
-class SignupFragment : Fragment(), View.OnClickListener {
+class SignupFragment : Fragment(), View.OnClickListener{
 
-    lateinit var utilities: Utilities
+    lateinit var utilities : Utilities
     lateinit var fragmentChangeInterface: FragmentChangeInterface
     private lateinit var viewModel: SignupViewModel
     private lateinit var firebaseAuth: FirebaseAuth
@@ -32,9 +32,9 @@ class SignupFragment : Fragment(), View.OnClickListener {
         fun newInstance() = SignupFragment()
     }
 
+
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.signup_fragment, container, false)
@@ -45,6 +45,7 @@ class SignupFragment : Fragment(), View.OnClickListener {
         viewModel = ViewModelProvider(this).get(SignupViewModel::class.java)
 
         init()
+
     }
 
     private fun init() {
@@ -55,6 +56,7 @@ class SignupFragment : Fragment(), View.OnClickListener {
 
         tvLogin.setOnClickListener(this)
         tvSignUpButton.setOnClickListener(this)
+
     }
 
     private fun addDetails() {
@@ -84,41 +86,49 @@ class SignupFragment : Fragment(), View.OnClickListener {
                     Toast.makeText(context, "Data Inserted", Toast.LENGTH_SHORT).show()
                     startActivity(Intent(context, MainActivity::class.java))
                     activity?.finish()
-                } else {
+                }
+                else {
                     addDetails()
                 }
             }
+
     }
 
     private fun checkFields(): Boolean {
-
+        var isValid = true
         if (etEmail.text.isNullOrEmpty()) {
             etEmail.error = "Email can't be empty"
             etEmail.requestFocus()
-            return false
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(etEmail.text.toString()).matches()) {
+            isValid = false
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(etEmail.text.toString()).matches()) {
             etEmail.error = "Invalid email format"
             etEmail.requestFocus()
-            return false
-        } else {
+            isValid = false
+        }
+        else {
             etEmail.error = null
             etEmail.clearFocus()
         }
 
+
         if (etFirstName.text.isNullOrEmpty()) {
             etFirstName.error = "Email can't be empty"
             etFirstName.requestFocus()
-            return false
-        } else {
+            isValid = false
+        }
+        else {
             etFirstName.error = null
             etFirstName.clearFocus()
         }
 
+
         if (etLastName.text.isNullOrEmpty()) {
             etLastName.error = "Email can't be empty"
             etLastName.requestFocus()
-            return false
-        } else {
+            isValid = false
+        }
+        else {
             etLastName.clearFocus()
             etLastName.error = null
         }
@@ -126,26 +136,31 @@ class SignupFragment : Fragment(), View.OnClickListener {
         if (etPhone.text.isNullOrEmpty()) {
             etPhone.error = "Email can't be empty"
             etPhone.requestFocus()
-            return false
-        } else {
+            isValid = false
+        }
+        else {
             etPhone.clearFocus()
             etPhone.error = null
         }
 
+
         if (etPassword.text.isNullOrEmpty()) {
             etPassword.error = "Email can't be empty"
             etPassword.requestFocus()
-            return false
-        } else if (etPassword.text.length < 8) {
+            isValid = false
+        }
+        else if (etPassword.length() < 8) {
             etPassword.error = "Password must be 8 digits long"
             etPassword.requestFocus()
-            return false
-        } else {
+            isValid = false
+        }
+        else {
             etPassword.error = null
             etPassword.clearFocus()
         }
 
-        return true
+        return isValid
+
     }
 
     override fun onClick(v: View?) {
@@ -174,4 +189,5 @@ class SignupFragment : Fragment(), View.OnClickListener {
             }
         }
     }
+
 }
