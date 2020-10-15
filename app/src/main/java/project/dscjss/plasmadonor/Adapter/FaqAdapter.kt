@@ -1,6 +1,5 @@
 package project.dscjss.plasmadonor.Adapter
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,7 +23,6 @@ class FaqAdapter(val list: List<FaqModel>) : RecyclerView.Adapter<FaqAdapter.Vie
     override fun onBindViewHolder(holder: FaqAdapter.ViewHolder, position: Int) {
         holder.ques.text = list[position].question
         holder.solution.text = list[position].solution
-
 
         holder.ques.setOnClickListener {
             if (holder.solution.visibility == View.GONE) {

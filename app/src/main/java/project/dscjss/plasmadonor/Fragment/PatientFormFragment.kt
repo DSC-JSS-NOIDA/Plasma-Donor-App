@@ -1,6 +1,5 @@
 package project.dscjss.plasmadonor.Fragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,7 +26,8 @@ class PatientFormFragment : Fragment() {
     private lateinit var viewModel: PatientFormViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.patient_form_fragment, container, false)
@@ -40,39 +40,37 @@ class PatientFormFragment : Fragment() {
 
         btSubmit.setOnClickListener {
 
-            if(etName.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Name cannot be blank!")
+            if (etName.text.isBlank()) {
+                Utilities.showShortToast(requireContext(), "Name cannot be blank!")
                 return@setOnClickListener
             }
-            if(etBloodGrp.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Blood Group cannot be blank!")
+            if (etBloodGrp.text.isBlank()) {
+                Utilities.showShortToast(requireContext(), "Blood Group cannot be blank!")
                 return@setOnClickListener
             }
-            if(etAge.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Age cannot be blank!")
+            if (etAge.text.isBlank()) {
+                Utilities.showShortToast(requireContext(), "Age cannot be blank!")
                 return@setOnClickListener
             }
-            if(etGender.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Gender cannot be blank!")
+            if (etGender.text.isBlank()) {
+                Utilities.showShortToast(requireContext(), "Gender cannot be blank!")
                 return@setOnClickListener
             }
-            if(etLocation.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Location cannot be blank!")
+            if (etLocation.text.isBlank()) {
+                Utilities.showShortToast(requireContext(), "Location cannot be blank!")
                 return@setOnClickListener
             }
-            if(etMobile.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Mobile cannot be blank!")
+            if (etMobile.text.isBlank()) {
+                Utilities.showShortToast(requireContext(), "Mobile cannot be blank!")
                 return@setOnClickListener
             }
-            if(etEmail.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Email cannot be blank!")
+            if (etEmail.text.isBlank()) {
+                Utilities.showShortToast(requireContext(), "Email cannot be blank!")
                 return@setOnClickListener
             }
 
             insertData()
-
         }
-
     }
 
     private fun insertData() {
@@ -118,7 +116,5 @@ class PatientFormFragment : Fragment() {
         if (cbDiabetes.isChecked) cbDiabetes.isChecked = false
         if (cbBpProblem.isChecked) cbBpProblem.isChecked = false
         if (cbLiver.isChecked) cbLiver.isChecked = false
-
     }
-
 }

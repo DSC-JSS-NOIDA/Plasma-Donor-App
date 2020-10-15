@@ -22,5 +22,4 @@ object Utilities {
     fun showLongSnackBar(view: View, message: String) {
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
     }
-
 }

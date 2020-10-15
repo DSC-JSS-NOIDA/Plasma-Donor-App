@@ -1,6 +1,5 @@
 package project.dscjss.plasmadonor.Fragment
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,7 +18,8 @@ class PatientInfoFragment : Fragment() {
     private lateinit var viewModel: PatientInfoViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.patient_info_fragment, container, false)
@@ -30,5 +30,4 @@ class PatientInfoFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(PatientInfoViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

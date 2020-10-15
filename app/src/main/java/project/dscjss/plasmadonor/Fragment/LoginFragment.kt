@@ -39,7 +39,8 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.login_fragment, container, false)
@@ -56,7 +57,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
         tvForgot.setOnClickListener(this)
         tvLoginButton.setOnClickListener(this)
         tvLoginGmail.setOnClickListener(this)
-
     }
 
     private fun signInGmail() {
@@ -107,29 +107,23 @@ class LoginFragment : Fragment(), View.OnClickListener {
 
                                             startActivity(Intent(requireContext(), MainActivity::class.java))
                                             requireActivity().finish()
-
                                         }
                                     }
-
                             } else {
                                 startActivity(Intent(context, MainActivity::class.java))
                                 requireActivity().finish()
                             }
-
                         }
                         .addOnFailureListener { exception ->
                             Log.e(TAG, "get failed with ", exception)
                         }
-
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     utilities.showShortToast(requireContext(), "Login Failed: ${task.exception}")
                 }
-
             }
     }
-
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -173,7 +167,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
         }
 
         return true
-
     }
 
     private fun init() {
@@ -237,9 +230,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso)
 
                 signInGmail()
-
             }
-
         }
     }
 }

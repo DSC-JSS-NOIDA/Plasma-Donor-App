@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.patient_list_fragment.*
 import project.dscjss.plasmadonor.Adapter.PatientListAdapter
 import project.dscjss.plasmadonor.Model.PatientModel
@@ -26,21 +25,22 @@ class PatientListFragment : Fragment() {
     private lateinit var firebaseFirestore: FirebaseFirestore
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.patient_list_fragment, container, false)
         return view
     }
 
-    private fun getData(){
+    private fun getData() {
         progress_circular.visibility = View.VISIBLE
         firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseFirestore.collection("patients")
-            .get().addOnSuccessListener {doc->
+            .get().addOnSuccessListener { doc ->
                 val it = doc.documents
                 patientList.clear()
-                for(i in it){
+                for (i in it) {
                     val name = i["Name"].toString()
                     val age = i["Age"].toString()
                     val bloodGroup = i["BloodGroup"].toString()
@@ -54,8 +54,10 @@ class PatientListFragment : Fragment() {
                     val bpProblem = i["BpProblem"].toString()
 
                     patientList.add(
-                        PatientModel(name,age,gender,location,hospital,
-                            bloodGroup,mobile,email,diabetes,liverProblem,bpProblem)
+                        PatientModel(
+                            name, age, gender, location, hospital,
+                            bloodGroup, mobile, email, diabetes, liverProblem, bpProblem
+                        )
                     )
                 }
                 progress_circular.visibility = View.GONE
@@ -63,7 +65,7 @@ class PatientListFragment : Fragment() {
             }
     }
 
-    private fun setRecyclerview(){
+    private fun setRecyclerview() {
         patientListRecyclerView.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
         patientListRecyclerView.adapter = PatientListAdapter(patientList)
     }
@@ -75,5 +77,4 @@ class PatientListFragment : Fragment() {
 
         getData()
     }
-
 }

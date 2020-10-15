@@ -25,21 +25,22 @@ class DonorListFragment : Fragment() {
     private lateinit var firebaseFirestore: FirebaseFirestore
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.donor_list_fragment, container, false)
         return view
     }
 
-    private fun getData(){
+    private fun getData() {
         progress_circular.visibility = View.VISIBLE
         firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseFirestore.collection("donors")
-            .get().addOnSuccessListener {doc->
+            .get().addOnSuccessListener { doc ->
                 val it = doc.documents
                 donorList.clear()
-                for(i in it){
+                for (i in it) {
                     val name = i["Name"].toString()
                     val age = i["Age"].toString()
                     val bloodGroup = i["BloodGroup"].toString()
@@ -52,8 +53,10 @@ class DonorListFragment : Fragment() {
                     val bpProblem = i["BpProblem"].toString()
 
                     donorList.add(
-                        DonorModel(name,age,gender,bloodGroup,location,
-                            mobile,email,diabetes,liverProblem,bpProblem)
+                        DonorModel(
+                            name, age, gender, bloodGroup, location,
+                            mobile, email, diabetes, liverProblem, bpProblem
+                        )
                     )
                 }
                 progress_circular.visibility = View.GONE
@@ -61,11 +64,10 @@ class DonorListFragment : Fragment() {
             }
     }
 
-    private fun setRecyclerview(){
+    private fun setRecyclerview() {
         donorListRecyclerView.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
         donorListRecyclerView.adapter = DonorListAdapter(donorList)
     }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -73,5 +75,4 @@ class DonorListFragment : Fragment() {
         // TODO: Use the ViewModel
         getData()
     }
-
 }

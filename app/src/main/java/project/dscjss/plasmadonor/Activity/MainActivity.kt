@@ -50,12 +50,10 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
             supportFragmentManager.beginTransaction()
                 .addToBackStack(null)
                 .replace(R.id.mainFrame, fragment).commit()
-        }
-        else {
+        } else {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.mainFrame, fragment).commit()
         }
-
     }
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -78,21 +76,22 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
         return true
     }
 
-    private fun initiate(fragment:Fragment){
+    private fun initiate(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.mainFrame, fragment).commit()
     }
 
     override fun onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        if (drawerLayout.isDrawerOpen(GravityCompat.START))
             drawerLayout.closeDrawer(GravityCompat.START)
         else
             super.onBackPressed()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(ActionBarDrawerToggle(this,drawerLayout,R.string.open,R.string.close)
-                .onOptionsItemSelected(item))
+        if (ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+            .onOptionsItemSelected(item)
+        )
             return true
         return super.onOptionsItemSelected(item)
     }

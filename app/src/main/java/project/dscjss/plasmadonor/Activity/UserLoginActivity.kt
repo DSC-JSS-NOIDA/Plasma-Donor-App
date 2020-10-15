@@ -19,7 +19,6 @@ class UserLoginActivity : AppCompatActivity(), FragmentChangeInterface {
         val fragment = LoginFragment()
         supportFragmentManager.beginTransaction()
             .add(R.id.loginFrame, fragment).commit()
-
     }
 
     override fun changeFragment(fragment: Fragment) {
@@ -28,12 +27,9 @@ class UserLoginActivity : AppCompatActivity(), FragmentChangeInterface {
             supportFragmentManager.beginTransaction()
                 .addToBackStack(null)
                 .replace(R.id.loginFrame, fragment).commit()
-        }
-        else {
+        } else {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.loginFrame, fragment).commit()
         }
-
     }
-
 }

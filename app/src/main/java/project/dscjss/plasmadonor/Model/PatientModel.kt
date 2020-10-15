@@ -1,6 +1,6 @@
 package project.dscjss.plasmadonor.Model
 
-class PatientModel (
+class PatientModel(
     var name: String,
     var age: String,
     var gender: String,
