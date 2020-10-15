@@ -1,14 +1,23 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: "org.jlleitschuh.gradle.ktlint"
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
 buildscript {
     ext.kotlin_version = "1.4.10"
     repositories {
         google()
         jcenter()
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:4.0.1"
+        classpath "com.android.tools.build:gradle:4.0.2"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.3.3'
+        classpath 'com.google.gms:google-services:4.3.4'
+        classpath "org.jlleitschuh.gradle:ktlint-gradle:9.4.1"
+        classpath "io.gitlab.arturbosch.detekt:detekt-gradle-plugin:1.14.1"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -22,6 +31,44 @@ allprojects {
     }
 }
 
+// Optionally configure plugin
+ktlint {
+    version = "0.39.0"
+    debug = false
+    additionalEditorconfigFile = file("${rootProject.rootDir}/.editorconfig")
+    filter {
+        exclude("**/generated/**")
+        include("**/kotlin/**")
+    }
+}
+
+detekt {
+    input = files(rootProject.rootDir)
+    buildUponDefaultConfig = true
+    failFast = true
+    config = files("qa/detekt-config.yml")
+}
+
+subprojects {
+    apply plugin: "org.jlleitschuh.gradle.ktlint"
+
+    // Optionally configure plugin
+    ktlint {
+        version = "0.39.0"
+        debug = false
+        additionalEditorconfigFile = file("${rootProject.rootDir}/.editorconfig")
+        filter {
+            exclude("**/generated/**")
+            include("**/kotlin/**")
+        }
+    }
+}
+
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+task checkCodeStyle(type: GradleBuild) {
+    tasks = ['lintDebug', 'ktlintCheck', 'detekt']
 }

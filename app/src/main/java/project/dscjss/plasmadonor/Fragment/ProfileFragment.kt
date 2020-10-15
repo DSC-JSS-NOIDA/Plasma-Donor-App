@@ -44,7 +44,7 @@ class ProfileFragment : Fragment() {
 
         if (firebaseAuth.currentUser == null)  {
             startActivity(Intent (context, UserLoginActivity::class.java))
-            activity!!.finish()
+            requireActivity().finish()
         }
         else {
 
@@ -52,9 +52,9 @@ class ProfileFragment : Fragment() {
                 .whereEqualTo("uid", firebaseAuth.currentUser!!.uid)
                 .get()
                 .addOnSuccessListener {doc->
-                    val it = doc.documents[0]
+                    val it = doc.documents.first()
 
-                    tvProfileName.text = "${it["FirstName"].toString()} ${it["LastName"].toString()}"
+                    tvProfileName.text = "${it["FirstName"]} ${it["LastName"]}"
                     tvProfileAge.text = it["Age"].toString()
                     tvBloodGroup.text = it["BloodGroup"].toString()
                     tvProfileWeight.text = it["Weight"].toString()
@@ -66,7 +66,7 @@ class ProfileFragment : Fragment() {
                 }
                 .addOnFailureListener {
 
-                    Utilities.showShortToast(context!! , "Something went wrong fetching user details")
+                    Utilities.showShortToast(requireContext() , "Something went wrong fetching user details")
 
                     Log.e(TAG, it.message.toString())
                 }
@@ -86,5 +86,4 @@ class ProfileFragment : Fragment() {
         }
 
     }
-
 }

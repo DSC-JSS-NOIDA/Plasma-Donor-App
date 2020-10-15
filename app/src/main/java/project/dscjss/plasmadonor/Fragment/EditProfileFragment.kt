@@ -46,7 +46,7 @@ class EditProfileFragment : Fragment() {
 
         btSave.setOnClickListener{
 
-            utilities.showLongToast(context!!,"Profile Updated")
+            utilities.showLongToast(requireContext(),"Profile Updated")
 
             //todo fragments ui needs to added and all data managed from here
 
