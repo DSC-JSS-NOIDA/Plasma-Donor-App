@@ -21,16 +21,20 @@
 
             <EditText
                 android:id="@+id/etFirstName"
-                android:hint="First Name"
+                android:hint="@string/edittext_hint_first_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp" />
 
             <EditText
                 android:id="@+id/etLastName"
-                android:hint="Last Name"
+                android:hint="@string/edittext_hint_last_name"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -40,7 +44,9 @@
 
             <EditText
                 android:id="@+id/etGender"
-                android:hint="Gender"
+                android:hint="@string/edittext_hint_gender"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -49,7 +55,9 @@
 
             <EditText
                 android:id="@+id/etAge"
-                android:hint="Age"
+                android:hint="@string/edittext_hint_age"
+                android:inputType="number"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -58,7 +66,9 @@
 
             <EditText
                 android:id="@+id/etBloodGrp"
-                android:hint="Blood Group"
+                android:hint="@string/edittext_hint_blood_group"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -67,7 +77,9 @@
 
             <EditText
                 android:id="@+id/etWeight"
-                android:hint="Weight"
+                android:hint="@string/edittext_hint_weight"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -76,7 +88,9 @@
 
             <EditText
                 android:id="@+id/etEmail"
-                android:hint="Email ID"
+                android:hint="@string/edittext_hint_email_id"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -85,7 +99,9 @@
 
             <EditText
                 android:id="@+id/etPhone"
-                android:hint="Phone"
+                android:hint="@string/edittext_hint_phone"
+                android:inputType="number"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -94,7 +110,9 @@
 
             <EditText
                 android:id="@+id/etLocation"
-                android:hint="Location"
+                android:hint="@string/edittext_hint_location"
+                android:inputType="text"
+                android:imeOptions="actionDone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -118,7 +136,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/btn_red_background"
-        android:text="Save"
+        android:text="@string/button_text_save"
         android:textColor="@android:color/white" />
 
 </FrameLayout>

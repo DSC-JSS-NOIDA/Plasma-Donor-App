@@ -33,4 +33,14 @@
     <string name="plasma_donor">PLASMA DONOR</string>
     <string name="blood_group">Blood Group</string>
     <string name="gender">Gender</string>
+    <string name="edittext_hint_first_name">First Name</string>
+    <string name="edittext_hint_last_name">Last Name</string>
+    <string name="edittext_hint_gender">Gender</string>
+    <string name="edittext_hint_age">Age</string>
+    <string name="edittext_hint_blood_group">Blood Group</string>
+    <string name="edittext_hint_weight">Weight</string>
+    <string name="edittext_hint_email_id">Email ID</string>
+    <string name="edittext_hint_phone">Phone</string>
+    <string name="edittext_hint_location">Location</string>
+    <string name="button_text_save">Save</string>
 </resources>
