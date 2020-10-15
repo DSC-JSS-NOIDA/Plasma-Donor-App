@@ -1,5 +1,5 @@
 build:
-  maxIssues: 120 # TODO fix this in the next PR
+  maxIssues: 141 # TODO fix this in the next PR
   excludeCorrectable: false
   weights:
   # complexity: 2

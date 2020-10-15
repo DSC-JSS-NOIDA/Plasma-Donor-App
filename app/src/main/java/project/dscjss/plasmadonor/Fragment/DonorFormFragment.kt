@@ -35,7 +35,8 @@ class DonorFormFragment : Fragment() {
     private lateinit var viewModel: DonorFormViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.donor_form_fragment, container, false)
@@ -49,40 +50,40 @@ class DonorFormFragment : Fragment() {
         setBloodGrpSpinner()
         setGenderSpinner()
         btSubmit.setOnClickListener {
-            var check : Boolean = false
-            if(etName.text.isBlank()){
+            var check: Boolean = false
+            if (etName.text.isBlank()) {
                 etName.error = "Name cannot be blank!"
                 check = true
             }
-            if(spinnerBloodGrp?.selectedItem.toString().equals(getString(R.string.blood_group), true)){
+            if (spinnerBloodGrp?.selectedItem.toString().equals(getString(R.string.blood_group), true)) {
                 (spinnerBloodGrp.selectedView as TextView).error = "Select Blood Group"
                 check = true
             }
-            if(etAge.text.isBlank()){
+            if (etAge.text.isBlank()) {
                 etAge.error = "Age cannot be blank!"
                 check = true
             }
-            if(spinnerGender?.selectedItem.toString().equals(getString(R.string.gender), true)){
+            if (spinnerGender?.selectedItem.toString().equals(getString(R.string.gender), true)) {
                 (spinnerGender.selectedView as TextView).error = "Select Gender"
                 check = true
             }
-            if(etLocation.text.isBlank()){
+            if (etLocation.text.isBlank()) {
                 etLocation.error = "Location cannot be blank!"
                 check = true
             }
-            if(etMobile.text.isBlank()){
+            if (etMobile.text.isBlank()) {
                 etMobile.error = "Mobile no. cannot be blank!"
-                check=true
+                check = true
             } else if (!isPhoneNumberValid(etMobile.text.toString())) {
                 etMobile.error = "Mobile no. invalid!"
-                check=true
+                check = true
             }
-            if(etEmail.text.isBlank()){
+            if (etEmail.text.isBlank()) {
                 etEmail.error = "Email cannot be blank!"
                 check = true
             }
 
-            if(check)
+            if (check)
                 return@setOnClickListener
 
             insertData()
@@ -134,9 +135,7 @@ class DonorFormFragment : Fragment() {
         })
     }
 
-
-
-    private fun spinnerAdapter(spinnerType : Array<String>): ArrayAdapter<String> {
+    private fun spinnerAdapter(spinnerType: Array<String>): ArrayAdapter<String> {
         var adapter = object : ArrayAdapter<String>(
             requireContext(), R.layout.spinner_text_layout,
             spinnerType
@@ -150,17 +149,14 @@ class DonorFormFragment : Fragment() {
 
                 val dropdownView = super.getDropDownView(position, convertView, parent) as TextView
 
-
                 if (position == 0) {
                     dropdownView.setTextColor(resources.getColor(R.color.colorHint))
-
                 } else {
                     dropdownView.setTextColor(resources.getColor(R.color.colorPrimary))
                 }
 
                 return dropdownView
             }
-
         }
         return adapter
     }
@@ -175,7 +171,6 @@ class DonorFormFragment : Fragment() {
             override fun onNothingSelected(view: AdapterView<*>?) {
             }
 
-
             override fun onItemSelected(
                 adapterView: AdapterView<*>?,
                 view: View?,
@@ -185,20 +180,14 @@ class DonorFormFragment : Fragment() {
 
                 var selectedText = adapterView?.getChildAt(0) as TextView
 
-
                 if (adapterView.getItemAtPosition(position).toString() == "Gender") {
                     selectedText.setTextColor(resources.getColor(R.color.colorHint))
                 } else {
                     selectedText.setTextColor(Color.BLACK)
                 }
-
-
             }
         }
-
     }
-
-
 
     private fun setBloodGrpSpinner() {
 
@@ -219,19 +208,14 @@ class DonorFormFragment : Fragment() {
 
                 var selectedText = adapterView?.getChildAt(0) as TextView
 
-
                 if (adapterView.getItemAtPosition(position).toString() == "Blood Group") {
                     selectedText.setTextColor(resources.getColor(R.color.colorHint))
                 } else {
                     selectedText.setTextColor(Color.BLACK)
                 }
-
-
             }
         }
-
     }
-
 
     private fun insertData() {
         var donorDetails = HashMap<String, String>()
@@ -274,8 +258,5 @@ class DonorFormFragment : Fragment() {
         if (cbDiabetes.isChecked) cbDiabetes.isChecked = false
         if (cbBpProblem.isChecked) cbBpProblem.isChecked = false
         if (cbLiver.isChecked) cbLiver.isChecked = false
-
     }
-
-
 }

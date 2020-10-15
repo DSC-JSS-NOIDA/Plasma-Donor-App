@@ -5,7 +5,6 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.View
 import android.view.WindowInsets
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
@@ -25,15 +24,17 @@ class SplashActivity : AppCompatActivity() {
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        Handler(Looper.getMainLooper()).postDelayed({
-            if (firebaseAuth.currentUser != null) {
-                startActivity(Intent(applicationContext , MainActivity::class.java))
-            }
-            else {
-                startActivity(Intent(applicationContext, UserLoginActivity::class.java))
-            }
-            finish()
-        }, 2500)
+        Handler(Looper.getMainLooper()).postDelayed(
+            {
+                if (firebaseAuth.currentUser != null) {
+                    startActivity(Intent(applicationContext, MainActivity::class.java))
+                } else {
+                    startActivity(Intent(applicationContext, UserLoginActivity::class.java))
+                }
+                finish()
+            },
+            2500
+        )
     }
 
     @Suppress("DEPRECATION")

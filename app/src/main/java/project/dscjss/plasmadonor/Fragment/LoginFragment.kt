@@ -157,7 +157,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             etEmailLogin.clearFocus()
         }
 
-        if (etPasswordLogin.text.isEmpty()) {
+        if (etPasswordLogin.text.isNullOrEmpty()) {
             etPasswordLogin.error = "Email can't be empty"
             etPasswordLogin.requestFocus()
             return false

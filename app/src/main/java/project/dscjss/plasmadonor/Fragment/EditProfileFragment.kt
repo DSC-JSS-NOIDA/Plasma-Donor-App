@@ -30,7 +30,8 @@ class EditProfileFragment : Fragment() {
     private lateinit var viewModel: EditProfileViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val v = inflater.inflate(R.layout.edit_profile_fragment, container, false)
@@ -55,7 +56,7 @@ class EditProfileFragment : Fragment() {
 
         btSave.setOnClickListener {
             utilities.showLongToast(requireContext(), "Profile Updated")
-            //TODO fragments ui needs to added and all data managed from here
+            // TODO fragments ui needs to added and all data managed from here
 
             fragmentChangeInterface.changeFragment(ProfileFragment())
         }
