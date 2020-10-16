@@ -2,7 +2,8 @@ package project.dscjss.plasmadonor.Fragment
 
 import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -48,40 +50,105 @@ class PatientFormFragment : Fragment() {
         // TODO: Use the ViewModel
 
         btSubmit.setOnClickListener {
-
+            var check : Boolean = false
             if(etName.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Name cannot be blank!")
-                return@setOnClickListener
+                etName.error = "Name cannot be blank!"
+                check = true
             }
             if(spinnerBloodGrp?.selectedItem.toString().equals(getString(R.string.blood_group), true)){
                 (spinnerBloodGrp.selectedView as TextView).error = "Select Blood Group"
                 check = true
             }
             if(etAge.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Age cannot be blank!")
-                return@setOnClickListener
+                etAge.error = "Age cannot be blank!"
+                check = true
             }
             if(spinnerGender?.selectedItem.toString().equals(getString(R.string.gender), true)){
                 (spinnerGender.selectedView as TextView).error = "Select Gender"
                 check = true
             }
             if(etLocation.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Location cannot be blank!")
-                return@setOnClickListener
+                etLocation.error = "Location cannot be blank!"
+                check = true
             }
-            if(etMobile.text.isBlank() || isPhoneNumberValid(etMobile.text.toString())){
-                Utilities.showShortToast(requireContext(),"Mobile cannot be blank!")
-                return@setOnClickListener
+            if(etMobile.text.isBlank()){
+                etMobile.error = "Mobile no. cannot be blank!"
+                check=true
             } else if (!isPhoneNumberValid(etMobile.text.toString())) {
-                Utilities.showShortToast(requireContext(),"Mobile no. invalid!")
-                return@setOnClickListener
+                etMobile.error = "Mobile no. invalid!"
+                check=true
             }
             if(etEmail.text.isBlank()){
-                Utilities.showShortToast(requireContext(),"Email cannot be blank!")
-                return@setOnClickListener
+                etEmail.error = "Email cannot be blank!"
+                check = true
+            }
+            if(etHospital.text.isBlank()){
+                etHospital.error = "Hospital cannot be blank!"
+                check = true
             }
 
+            if(check)
+                return@setOnClickListener
+
             insertData()
+        }
+
+        etName.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                etName.error = null
+            }
+        })
+        etAge.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                etAge.error = null
+            }
+        })
+        etLocation.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                etLocation.error = null
+            }
+        })
+        etMobile.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                etMobile.error = null
+            }
+        })
+        etEmail.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                etEmail.error = null
+            }
+        })
+        etHospital.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(p0: Editable?) {}
+
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {}
+
+            override fun onTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                etHospital.error = null
+            }
+        })
+
+    }
 
     private fun spinnerAdapter(spinnerType : Array<String>): ArrayAdapter<String> {
         var adapter = object : ArrayAdapter<String>(
