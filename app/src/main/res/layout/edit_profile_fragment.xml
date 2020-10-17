@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="project.dscjss.plasmadonor.models.ProfileDetail" />
+    </data>
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.EditProfileFragment">
+    tools:context=".Fragment.editprofile.EditProfileFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -22,6 +30,7 @@
             <EditText
                 android:id="@+id/etFirstName"
                 android:hint="@string/edittext_hint_first_name"
+                android:text="@{user.firstName}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="text"
@@ -33,6 +42,7 @@
             <EditText
                 android:id="@+id/etLastName"
                 android:hint="@string/edittext_hint_last_name"
+                android:text="@{user.lastName}"
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
@@ -45,6 +55,7 @@
             <EditText
                 android:id="@+id/etGender"
                 android:hint="@string/edittext_hint_gender"
+                android:text="@{user.gender}"
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
@@ -56,6 +67,7 @@
             <EditText
                 android:id="@+id/etAge"
                 android:hint="@string/edittext_hint_age"
+                android:text="@{user.age}"
                 android:inputType="number"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
@@ -67,6 +79,7 @@
             <EditText
                 android:id="@+id/etBloodGrp"
                 android:hint="@string/edittext_hint_blood_group"
+                android:text="@{user.bloodGroup}"
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
@@ -78,6 +91,7 @@
             <EditText
                 android:id="@+id/etWeight"
                 android:hint="@string/edittext_hint_weight"
+                android:text="@{user.weight}"
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
@@ -88,6 +102,7 @@
 
             <EditText
                 android:id="@+id/etEmail"
+                android:text="@{user.emailId}"
                 android:hint="@string/edittext_hint_email_id"
                 android:imeOptions="actionNext"
                 android:inputType="textEmailAddress"
@@ -100,6 +115,7 @@
             <EditText
                 android:id="@+id/etPhone"
                 android:hint="@string/edittext_hint_phone"
+                android:text="@{user.phone}"
                 android:inputType="number"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
@@ -111,6 +127,7 @@
             <EditText
                 android:id="@+id/etLocation"
                 android:hint="@string/edittext_hint_location"
+                android:text="@{user.location}"
                 android:inputType="text"
                 android:imeOptions="actionDone"
                 android:layout_width="match_parent"
@@ -139,4 +156,13 @@
         android:text="@string/button_text_save"
         android:textColor="@android:color/white" />
 
+    <ProgressBar
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
 </FrameLayout>
+</layout>
