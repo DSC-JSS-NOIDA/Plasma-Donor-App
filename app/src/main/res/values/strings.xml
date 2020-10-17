@@ -43,4 +43,17 @@
     <string name="edittext_hint_phone">Phone</string>
     <string name="edittext_hint_location">Location</string>
     <string name="button_text_save">Save</string>
+    <string name="err_first_name">Firstname cannot be empty!</string>
+    <string name="err_last_name">LastName cannot be empty</string>
+    <string name="err_age">Age cannot be empty!</string>
+    <string name="err_gender">Gender cannot be empty</string>
+    <string name="err_blood_group">Blood Group cannot be empty</string>
+    <string name="err_weight">Weight cannot be empty!</string>
+    <string name="err_email">Please enter a proper EmailId</string>
+    <string name="err_phone">Please enter a valid PhoneNumber</string>
+    <string name="err_location">Location cannot be empty</string>
+    <string name="err_msg_no_user_detail">Please add your personal details.</string>
+    <string name="err_user_detail_firebase__fetch_failure">Something went wrong fetching user details</string>
+    <string name="err_user_detail_firebase__save_failure">Something went wrong, Please try again</string>
+    <string name="msg_profile_update_success">Profile Updated Successfully</string>
 </resources>

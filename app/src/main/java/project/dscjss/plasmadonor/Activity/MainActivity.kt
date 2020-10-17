@@ -3,7 +3,6 @@ package project.dscjss.plasmadonor.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.ArrayAdapter
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -14,10 +13,11 @@ import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 import project.dscjss.plasmadonor.AboutFragment
 import project.dscjss.plasmadonor.Fragment.*
-import project.dscjss.plasmadonor.Interface.FragmentChangeInterface
+import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 import project.dscjss.plasmadonor.R
+import project.dscjss.plasmadonor.interfaces.OnBackPressInterface
 
-class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationView.OnNavigationItemSelectedListener,OnBackPressInterface {
 
     private lateinit var firebaseAuth: FirebaseAuth
 
@@ -26,15 +26,16 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
         setContentView(R.layout.activity_main)
 
         init()
+
 //        supportFragmentManager.beginTransaction()
 //            .replace(R.id.mainFrame, ProfileFragment())
 //            .commit()
     }
 
+
     private fun init() {
 
         firebaseAuth = FirebaseAuth.getInstance()
-
         val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
         val toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
         drawer.addDrawerListener(toggle)
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
         supportActionBar!!.setHomeButtonEnabled(true)
         toggle.syncState()
         nav_view.setNavigationItemSelectedListener(this)
+
     }
 
     override fun changeFragment(fragment: Fragment) {
@@ -57,6 +59,7 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
         }
 
     }
+
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
@@ -84,10 +87,16 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
     }
 
     override fun onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START))
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START)
-        else
+
+        }
+        else if (supportFragmentManager.backStackEntryCount>0){
+            supportFragmentManager.popBackStack()
+        }
+        else{
             super.onBackPressed()
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -95,5 +104,9 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
                 .onOptionsItemSelected(item))
             return true
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun navigateBack() {
+       onBackPressed()
     }
 }
