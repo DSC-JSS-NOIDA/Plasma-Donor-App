@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import project.dscjss.plasmadonor.Model.PatientModel
+import project.dscjss.plasmadonor.models.PatientModel
 import project.dscjss.plasmadonor.R
 
 class PatientListAdapter(val list: List<PatientModel>) :

@@ -8,10 +8,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.patient_list_fragment.*
 import project.dscjss.plasmadonor.Adapter.PatientListAdapter
-import project.dscjss.plasmadonor.Model.PatientModel
+import project.dscjss.plasmadonor.models.PatientModel
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.ViewModel.PatientListViewModel
 

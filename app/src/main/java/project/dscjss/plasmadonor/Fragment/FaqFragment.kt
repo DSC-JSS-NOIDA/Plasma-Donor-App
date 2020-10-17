@@ -6,11 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.faq_fragment.*
 import project.dscjss.plasmadonor.Adapter.FaqAdapter
-import project.dscjss.plasmadonor.Model.FaqModel
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.ViewModel.FaqViewModel
 

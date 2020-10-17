@@ -1,12 +1,11 @@
 package project.dscjss.plasmadonor.Adapter
 
-import android.opengl.Visibility
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import project.dscjss.plasmadonor.Model.FaqModel
+import project.dscjss.plasmadonor.models.FaqModel
 import project.dscjss.plasmadonor.R
 
 class FaqAdapter(val list: List<FaqModel>) : RecyclerView.Adapter<FaqAdapter.ViewHolder>() {

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import project.dscjss.plasmadonor.Model.DonorModel
+import project.dscjss.plasmadonor.models.DonorModel
 import project.dscjss.plasmadonor.R
 
 class DonorListAdapter(val list: List<DonorModel>) :

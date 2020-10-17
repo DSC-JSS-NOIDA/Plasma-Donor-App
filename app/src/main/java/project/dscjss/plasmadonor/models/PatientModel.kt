@@ -1,4 +1,4 @@
-package project.dscjss.plasmadonor.Model
+package project.dscjss.plasmadonor.models
 
 class PatientModel (
     var name: String,
