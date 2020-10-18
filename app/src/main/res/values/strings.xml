@@ -33,4 +33,11 @@
     <string name="plasma_donor">PLASMA DONOR</string>
     <string name="blood_group">Blood Group</string>
     <string name="gender">Gender</string>
+
+    <string name="list_name">"Name        :" %s</string>
+    <string name="list_location">"Location   :" %s</string>
+    <string name="list_phone">"Phone       :" %s</string>
+    <string name="list_age">"Age            :" %s</string>
+    <string name="list_blood">Blood Group: %s</string>
+    <string name="list_hospital">"Hospital   :" %s</string>
 </resources>
