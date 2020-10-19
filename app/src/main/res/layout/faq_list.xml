@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="2dp"
-    app:cardCornerRadius="4dp"
-    android:padding="4dp">
+    android:animateLayoutChanges="true"
+    android:focusable="true"
+    android:padding="4dp"
+    app:cardCornerRadius="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,23 +20,23 @@
             android:id="@+id/tvQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
-            android:padding="1dp"
-            android:textStyle="bold"
-            android:textColor="@color/colorBlack"
             android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
-            tools:text="What is plasma donor app?"/>
+            android:padding="1dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            tools:text="What is plasma donor app?" />
 
         <TextView
             android:id="@+id/tvSolution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
             android:layout_marginTop="4dp"
             android:padding="1dp"
-            android:visibility="gone"
             android:textColor="@color/colorBlack"
-            tools:text="It is an android application"/>
+            android:textSize="16dp"
+            android:visibility="gone"
+            tools:text="It is an android application" />
 
     </LinearLayout>
 
