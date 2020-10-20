@@ -21,7 +21,8 @@ class CreateRequestFragment : Fragment() {
     private lateinit var viewModel: CreateRequestViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.create_request_fragment, container, false)
@@ -32,5 +33,4 @@ class CreateRequestFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(CreateRequestViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

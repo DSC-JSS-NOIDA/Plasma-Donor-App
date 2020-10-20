@@ -52,12 +52,9 @@
                 android:layout_marginEnd="30dp" />
 
 
-            <EditText
+            <Spinner
                 android:id="@+id/etGender"
                 android:hint="@string/edittext_hint_gender"
-                android:text="@{user.gender}"
-                android:inputType="text"
-                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -76,10 +73,9 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp" />
 
-            <EditText
+            <Spinner
                 android:id="@+id/etBloodGrp"
                 android:hint="@string/edittext_hint_blood_group"
-                android:text="@{user.bloodGroup}"
                 android:inputType="text"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"

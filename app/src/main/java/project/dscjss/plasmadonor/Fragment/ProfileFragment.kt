@@ -33,9 +33,9 @@ class ProfileFragment : Fragment() {
     private lateinit var viewModel: ProfileViewModel
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var firebaseFirestore: FirebaseFirestore
-    private  var detail: ProfileDetail? = null
-    private lateinit var mContext:Context
-    private lateinit var binding:ProfileFragmentBinding
+    private var detail: ProfileDetail? = null
+    private lateinit var mContext: Context
+    private lateinit var binding: ProfileFragmentBinding
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -43,7 +43,8 @@ class ProfileFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.profile_fragment, container, false)
@@ -53,47 +54,32 @@ class ProfileFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-
         init()
-
-        if (firebaseAuth.currentUser == null)  {
-            startActivity(Intent (context, UserLoginActivity::class.java))
+        if (firebaseAuth.currentUser == null) {
+            startActivity(Intent(context, UserLoginActivity::class.java))
             activity!!.finish()
-        }
-        else {
+        } else {
             firebaseFirestore.collection("users")
                 .whereEqualTo("uid", firebaseAuth.currentUser!!.uid)
                 .get()
-                .addOnSuccessListener {doc->
-                   if (doc.documents.size==0){
+                .addOnSuccessListener { doc ->
+                   if (doc.documents.size == 0) {
                         mContext.showShortToast(R.string.err_msg_no_user_detail)
+                   } else {
+                       parseAndSetUserInfo(doc.documents.first())
                    }
-                   else {
-                       parseAndSetUserInfo(doc.documents[0])
-                   }
-
-
-
                 }
                 .addOnFailureListener {
                     mContext.showShortToast(R.string.err_user_detail_firebase__fetch_failure)
                     Log.e(TAG, it.message.toString())
                 }
-
-
-
-
         }
-
     }
-
-
     private fun parseAndSetUserInfo(doc: DocumentSnapshot) {
-        if (detail==null){ detail = ProfileDetail() }
+        if (detail == null) { detail = ProfileDetail() }
          detail?.apply {
-            firstName =  doc["FirstName"].toString()
-            lastName =  doc ["LastName"].toString()
+            firstName = doc["FirstName"].toString()
+            lastName = doc ["LastName"].toString()
             age = doc["Age"].toString()
             bloodGroup = doc["BloodGroup"].toString()
             weight = doc["Weight"].toString()
@@ -104,19 +90,14 @@ class ProfileFragment : Fragment() {
         }.also {
              binding.user = detail
          }
-
     }
-
-    private fun init(){
-
+    private fun init() {
         fragmentChangeInterface = context as FragmentChangeInterface
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseFirestore = FirebaseFirestore.getInstance()
-        buttonProfileEdit.setOnClickListener{
-            fragmentChangeInterface.changeFragment(EditProfileFragment.newInstance(detail))
-        }
-
+        buttonProfileEdit.setOnClickListener{ fragmentChangeInterface.changeFragment(
+            EditProfileFragment.newInstance(detail)
+        ) }
     }
-
 }

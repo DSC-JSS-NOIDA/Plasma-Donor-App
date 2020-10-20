@@ -6,7 +6,7 @@ import java.util.regex.Pattern
  * Created by Harsh Rajgor on 03/10/20.
  */
 
-fun isPhoneNumberValid(phone: String) : Boolean{
+fun isPhoneNumberValid( phone: String): Boolean {
     if (phone.contains("+") && phone.indexOf("+") != 0) return false
     if (phone.startsWith("+") && phone.lastIndexOf("+") == 0) {
         return phone.length == 13
@@ -14,11 +14,10 @@ fun isPhoneNumberValid(phone: String) : Boolean{
     return phone.length == 10
 }
 
-fun isValidEmail(emailId: String):Boolean {
-    return if(emailId.isEmpty()) {
+fun isValidEmail(emailId: String): Boolean {
+    return if (emailId.isEmpty()) {
         false
-    }
-    else {
+    } else {
         val emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\." +
                 "[a-zA-Z0-9_+&*-]+)*@" +
                 "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
@@ -26,7 +25,5 @@ fun isValidEmail(emailId: String):Boolean {
 
         val pat = Pattern.compile(emailRegex)
         pat.matcher(emailId).matches()
-
     }
-
 }

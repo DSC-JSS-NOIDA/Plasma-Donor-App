@@ -1,39 +1,59 @@
 package project.dscjss.plasmadonor.Adapter
 
-import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import project.dscjss.plasmadonor.models.DonorModel
+import com.firebase.ui.firestore.paging.FirestorePagingAdapter
+import com.firebase.ui.firestore.paging.FirestorePagingOptions
+import com.firebase.ui.firestore.paging.LoadingState
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.donor_list_item.*
+import project.dscjss.plasmadonor.Fragment.data.Donor
 import project.dscjss.plasmadonor.R
 
-class DonorListAdapter(val list: List<DonorModel>) :
-    RecyclerView.Adapter<DonorListAdapter.ViewHolder>(){
+class DonorListAdapter(
+    options: FirestorePagingOptions<Donor>,
+    private val onProgress: () -> Unit,
+    private val onLoaded: () -> Unit,
+) : FirestorePagingAdapter<Donor, DonorListAdapter.DonorViewHolder>(options) {
 
-    class ViewHolder(val v : View) :
-        RecyclerView.ViewHolder(v){
-        val pName = v.findViewById<TextView>(R.id.tvPatientName)
-        val pLocation = v.findViewById<TextView>(R.id.tvPatientLocation)
-        val pMobile = v.findViewById<TextView>(R.id.tvPatientMobile)
-        val pAge = v.findViewById<TextView>(R.id.tvPatientAge)
-        val pBloodGroup = v.findViewById<TextView>(R.id.tvPatientBloodGroup)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DonorViewHolder {
+        val inflater = LayoutInflater.from(parent.context)
+        val v: View = inflater.inflate(R.layout.donor_list_item, parent, false)
+        return DonorViewHolder(v)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val v : View = LayoutInflater.from(parent.context).inflate(R.layout.donor_list_item,parent,false)
-        return ViewHolder(v)
+    override fun onBindViewHolder(viewHolder: DonorViewHolder, p1: Int, donor: Donor) {
+        viewHolder.bind(donor)
     }
 
-    @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.pName.text     = "Name      : ${list[position].name}"
-        holder.pAge.text      = "Age       : ${list[position].age}"
-        holder.pLocation.text = "Location  : ${list[position].location}"
-        holder.pMobile.text   = "Phone No. : ${list[position].mobile}"
-        holder.pBloodGroup.text = "Blood Group : ${list[position].bloodGroup}"
+    override fun onError(e: Exception) {
+        super.onError(e)
+        onLoaded.invoke()
     }
 
-    override fun getItemCount(): Int = list.size
+    override fun onLoadingStateChanged(state: LoadingState) {
+        when (state) {
+            LoadingState.LOADING_INITIAL -> onProgress.invoke()
+            LoadingState.LOADING_MORE -> onProgress.invoke()
+            LoadingState.LOADED -> onLoaded.invoke()
+            LoadingState.ERROR -> onLoaded.invoke()
+            LoadingState.FINISHED -> onLoaded.invoke()
+        }
+    }
+
+    class DonorViewHolder(
+        override val containerView: View
+    ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
+
+        fun bind(donor: Donor) {
+            val context = containerView.context
+            tvPatientName.text = context.getString(R.string.list_name, donor.name)
+            tvPatientAge.text = context.getString(R.string.list_age, donor.age)
+            tvPatientLocation.text = context.getString(R.string.list_location, donor.location)
+            tvPatientMobile.text = context.getString(R.string.list_phone, donor.mobile)
+            tvPatientBloodGroup.text = context.getString(R.string.list_blood, donor.bloodGroup)
+        }
+    }
 }

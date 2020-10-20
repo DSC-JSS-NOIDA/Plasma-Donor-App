@@ -22,8 +22,7 @@ object DataFaq {
                         FaqModel(ques, sol)
                     )
                 }
-
             }
-        return  faqList
+        return faqList
     }
 }

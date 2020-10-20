@@ -23,15 +23,7 @@ object Utilities {
     fun showLongSnackBar(view: View, message: String) {
         Snackbar.make(view, message, Snackbar.LENGTH_LONG).show()
     }
-
-    //extension function
-    fun Context.showShortToast(@StringRes stringResource:Int){
-        Toast.makeText(this, this.getString(stringResource),Toast.LENGTH_SHORT).show()
+    fun Context.showShortToast(@StringRes stringResource: Int) {
+        Toast.makeText(this, this.getString(stringResource), Toast.LENGTH_SHORT).show()
     }
-
-    fun Context.showLongToast(@StringRes stringResource: Int){
-        Toast.makeText(this, this.getString(stringResource),Toast.LENGTH_LONG).show()
-    }
-
-
 }

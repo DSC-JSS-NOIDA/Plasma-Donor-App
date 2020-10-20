@@ -1,6 +1,6 @@
 package project.dscjss.plasmadonor.models
 
-class FaqModel (
+class FaqModel(
     var question: String,
     var solution: String
 )

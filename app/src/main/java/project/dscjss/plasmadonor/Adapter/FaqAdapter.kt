@@ -24,7 +24,6 @@ class FaqAdapter(val list: List<FaqModel>) : RecyclerView.Adapter<FaqAdapter.Vie
         holder.ques.text = list[position].question
         holder.solution.text = list[position].solution
 
-
         holder.ques.setOnClickListener {
             if (holder.solution.visibility == View.GONE) {
                 holder.solution.visibility = View.VISIBLE

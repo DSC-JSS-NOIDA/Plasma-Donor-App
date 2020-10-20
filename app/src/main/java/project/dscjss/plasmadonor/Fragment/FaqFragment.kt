@@ -20,7 +20,8 @@ class FaqFragment : Fragment() {
     private lateinit var viewModel: FaqViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater.inflate(R.layout.faq_fragment, container, false)

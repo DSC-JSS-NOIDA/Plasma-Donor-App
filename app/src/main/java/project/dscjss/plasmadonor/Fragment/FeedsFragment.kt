@@ -21,7 +21,8 @@ class FeedsFragment : Fragment() {
     private lateinit var viewModel: FeedsViewModel
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.feeds_fragment, container, false)
@@ -32,5 +33,4 @@ class FeedsFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(FeedsViewModel::class.java)
         // TODO: Use the ViewModel
     }
-
 }

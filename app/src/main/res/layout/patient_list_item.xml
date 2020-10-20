@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:layout_margin="2dp"
-    app:cardCornerRadius="4dp"
-    android:padding="4dp">
+    android:padding="4dp"
+    app:cardCornerRadius="4dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,38 +18,38 @@
             android:id="@+id/tvPatientName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
             android:padding="1dp"
-            android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            tools:text="Name : "/>
+            android:textSize="16dp"
+            android:textStyle="bold"
+            tools:text="Name : " />
 
         <TextView
             android:id="@+id/tvPatientLocation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            tools:text="Location : "/>
+            android:textSize="16dp"
+            tools:text="Location : " />
 
         <TextView
             android:id="@+id/tvPatientMobile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            tools:text="Mobile : "/>
+            android:textSize="16dp"
+            tools:text="Mobile : " />
 
         <TextView
             android:id="@+id/tvPatientHospital"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            tools:text="Hospital : "/>
+            android:textSize="16dp"
+            tools:text="Hospital : " />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,25 +61,22 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16dp"
                 android:padding="1dp"
                 android:textColor="@color/colorBlack"
-                tools:text="Age : "/>
+                android:textSize="16dp"
+                tools:text="Age : " />
 
             <TextView
                 android:id="@+id/tvPatientBloodGroup"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16dp"
                 android:padding="1dp"
                 android:textColor="@color/colorBlack"
-                tools:text="Blood Group : "/>
+                android:textSize="16dp"
+                tools:text="Blood Group : " />
 
         </LinearLayout>
-
-
-
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
