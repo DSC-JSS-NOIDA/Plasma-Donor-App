@@ -100,9 +100,11 @@ class EditProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
             adapter = SpinnerTextAdapter(
                 this@EditProfileFragment.mContext,
                 R.layout.spinner_text_layout,
-                resources.getStringArray(R.array.gender))
+                resources.getStringArray(R.array.gender)
+            )
             setSelection(
-                getPreviousSelectedPos(this@EditProfileFragment.gender, resources.getStringArray(R.array.gender)), true)
+                getPreviousSelectedPos(this@EditProfileFragment.gender, resources.getStringArray(R.array.gender)), true
+            )
             onItemSelectedListener = this@EditProfileFragment
         }
 
@@ -110,10 +112,14 @@ class EditProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
             adapter = SpinnerTextAdapter(
                 this@EditProfileFragment.mContext,
                 R.layout.spinner_text_layout,
-                resources.getStringArray(R.array.blood_grp))
+                resources.getStringArray(R.array.blood_grp)
+            )
             setSelection(
                 getPreviousSelectedPos(
-                    this@EditProfileFragment.bloodGroup, resources.getStringArray(R.array.blood_grp)), true)
+                    this@EditProfileFragment.bloodGroup, resources.getStringArray(R.array.blood_grp)
+                ),
+                true
+            )
             onItemSelectedListener = this@EditProfileFragment
         }
         btSave.setOnClickListener {
@@ -127,9 +133,14 @@ class EditProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
         }
         viewModel.loader.observe(viewLifecycleOwner, { handleLoadStates(it) })
         viewModel.stringResources.observe(viewLifecycleOwner, { mContext.showShortToast(it) })
-        viewModel.success.observe(viewLifecycleOwner, { if (it) {
-            onBackPressInterface.navigateBack()
-        } })
+        viewModel.success.observe(
+            viewLifecycleOwner,
+            {
+                if (it) {
+                    onBackPressInterface.navigateBack()
+                }
+            }
+        )
     }
     private fun EditText.getString(): String { return this.text.toString() }
 
@@ -143,7 +154,8 @@ class EditProfileFragment : Fragment(), AdapterView.OnItemSelectedListener {
             weight = etWeight.getString()
             emailId = etEmail.getString()
             phone = etPhone.getString()
-            location = etLocation.getString() }
+            location = etLocation.getString()
+        }
     }
 
     override fun onItemSelected(adapterView: AdapterView<*>?, view: View?, position: Int, p3: Long) {

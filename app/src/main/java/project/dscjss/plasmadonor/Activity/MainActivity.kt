@@ -23,7 +23,10 @@ import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.interfaces.OnBackPressInterface
 
-class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationView.OnNavigationItemSelectedListener,
+class MainActivity :
+    AppCompatActivity(),
+    FragmentChangeInterface,
+    NavigationView.OnNavigationItemSelectedListener,
     OnBackPressInterface {
 
     private lateinit var firebaseAuth: FirebaseAuth
@@ -90,11 +93,9 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
     override fun onBackPressed() {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
             drawerLayout.closeDrawer(GravityCompat.START)
-        }
-        else if (supportFragmentManager.backStackEntryCount > 0) {
+        } else if (supportFragmentManager.backStackEntryCount > 0) {
             supportFragmentManager.popBackStack()
-        }
-        else {
+        } else {
             super.onBackPressed()
         }
     }
@@ -107,6 +108,6 @@ class MainActivity : AppCompatActivity(), FragmentChangeInterface, NavigationVie
     }
 
     override fun navigateBack() {
-       onBackPressed()
+        onBackPressed()
     }
 }

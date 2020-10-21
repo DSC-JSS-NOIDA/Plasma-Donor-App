@@ -4,5 +4,5 @@ import androidx.annotation.StringRes
 
 interface EditProfileCallBack {
     fun onSuccess()
-    fun onError(@StringRes strResource:Int)
+    fun onError(@StringRes strResource: Int)
 }

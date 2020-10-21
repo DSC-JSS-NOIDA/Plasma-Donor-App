@@ -18,7 +18,7 @@ class FaqFragment : Fragment() {
         fun newInstance() = FaqFragment()
     }
 
-    private  lateinit var firebaseFirestore: FirebaseFirestore
+    private lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var viewModel: FaqViewModel
 
     override fun onCreateView(

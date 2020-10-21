@@ -63,11 +63,11 @@ class ProfileFragment : Fragment() {
                 .whereEqualTo("uid", firebaseAuth.currentUser!!.uid)
                 .get()
                 .addOnSuccessListener { doc ->
-                   if (doc.documents.size == 0) {
+                    if (doc.documents.size == 0) {
                         mContext.showShortToast(R.string.err_msg_no_user_detail)
-                   } else {
-                       parseAndSetUserInfo(doc.documents.first())
-                   }
+                    } else {
+                        parseAndSetUserInfo(doc.documents.first())
+                    }
                 }
                 .addOnFailureListener {
                     mContext.showShortToast(R.string.err_user_detail_firebase__fetch_failure)
@@ -77,7 +77,7 @@ class ProfileFragment : Fragment() {
     }
     private fun parseAndSetUserInfo(doc: DocumentSnapshot) {
         if (detail == null) { detail = ProfileDetail() }
-         detail?.apply {
+        detail?.apply {
             firstName = doc["FirstName"].toString()
             lastName = doc ["LastName"].toString()
             age = doc["Age"].toString()
@@ -88,16 +88,18 @@ class ProfileFragment : Fragment() {
             emailId = doc["Email"].toString()
             location = doc["Location"].toString()
         }.also {
-             binding.user = detail
-         }
+            binding.user = detail
+        }
     }
     private fun init() {
         fragmentChangeInterface = context as FragmentChangeInterface
         viewModel = ViewModelProvider(this).get(ProfileViewModel::class.java)
         firebaseAuth = FirebaseAuth.getInstance()
         firebaseFirestore = FirebaseFirestore.getInstance()
-        buttonProfileEdit.setOnClickListener{ fragmentChangeInterface.changeFragment(
-            EditProfileFragment.newInstance(detail)
-        ) }
+        buttonProfileEdit.setOnClickListener {
+            fragmentChangeInterface.changeFragment(
+                EditProfileFragment.newInstance(detail)
+            )
+        }
     }
 }

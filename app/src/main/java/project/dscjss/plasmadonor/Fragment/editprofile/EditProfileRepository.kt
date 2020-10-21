@@ -22,8 +22,8 @@ class EditProfileRepository {
                 .set(createUserInputMaps(userId, detail), SetOptions.merge())
                 .addOnSuccessListener {
                     editProfileCallBack.onSuccess()
-               }
-              .addOnFailureListener {
+                }
+                .addOnFailureListener {
                     Log.e(this.javaClass.toString(), it.stackTraceToString())
                     editProfileCallBack.onError(R.string.err_user_detail_firebase__save_failure)
                 }
@@ -31,17 +31,17 @@ class EditProfileRepository {
     }
 
     fun createUserInputMaps(userId: String, detail: ProfileDetail): HashMap<String, String> {
-         val user = HashMap<String, String>()
-            user["uid"] = userId
-            user["FirstName"] = detail.firstName
-            user["LastName"] = detail.lastName
-            user["Gender"] = detail.gender
-            user["Age"] = detail.age
-            user["BloodGroup"] = detail.bloodGroup
-            user["Weight"] = detail.weight
-            user["Email"] = detail.emailId
-            user["Phone"] = detail.phone
-           user["Location"] = detail.location
-           return user
+        val user = HashMap<String, String>()
+        user["uid"] = userId
+        user["FirstName"] = detail.firstName
+        user["LastName"] = detail.lastName
+        user["Gender"] = detail.gender
+        user["Age"] = detail.age
+        user["BloodGroup"] = detail.bloodGroup
+        user["Weight"] = detail.weight
+        user["Email"] = detail.emailId
+        user["Phone"] = detail.phone
+        user["Location"] = detail.location
+        return user
     }
 }

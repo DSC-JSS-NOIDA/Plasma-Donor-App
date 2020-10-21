@@ -5,7 +5,6 @@ import project.dscjss.plasmadonor.models.FaqModel
 
 object DataFaq {
 
-
     fun getData(firebaseFireStore: FirebaseFirestore): List<FaqModel> {
         val faqList: MutableList<FaqModel> = mutableListOf<FaqModel>()
         firebaseFireStore.collection("faq")

@@ -8,11 +8,14 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import project.dscjss.plasmadonor.R
 
-class SpinnerTextAdapter constructor(var mContext:Context,layout:Int,var spinnerType:Array<String>):ArrayAdapter<String>(mContext,layout,spinnerType) {
-
+class SpinnerTextAdapter constructor(
+    var mContext: Context,
+    layout: Int,
+    var spinnerType: Array<String>
+) : ArrayAdapter<String>(mContext, layout, spinnerType) {
 
     override fun isEnabled(position: Int): Boolean {
-      return  position!=0
+        return position != 0
     }
 
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup): View {
@@ -25,13 +28,4 @@ class SpinnerTextAdapter constructor(var mContext:Context,layout:Int,var spinner
         }
         return dropdownView
     }
-
-    fun getSelectedItem(position: Int):String {
-        return if(position == 0) return "" else spinnerType[position]
-    }
-
-
-
-
-
 }
