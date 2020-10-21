@@ -10,12 +10,12 @@
         android:id="@+id/tvLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log In"
+        android:text="@string/log_in"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/etEmailLogin"
         android:layout_marginBottom="20dp"
         android:layout_marginStart="22dp"
-        android:textSize="30dp"
+        android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/colorBlack"/>
 
@@ -23,13 +23,13 @@
         android:id="@+id/tvSignUpLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvLogin"
         app:layout_constraintBottom_toBottomOf="@id/tvLogin"
         android:layout_marginEnd="22dp"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:textColor="@android:color/darker_gray"/>
 
 
@@ -38,13 +38,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/etPasswordLogin_layout"
-        android:hint="Email"
+        android:hint="@string/edittext_hint_email_id"
+        android:inputType="textEmailAddress"
         android:singleLine="true"
         android:imeOptions="actionNext"
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="10dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:padding="14dp"/>
 
     <androidx.constraintlayout.widget.Guideline
@@ -68,10 +69,10 @@
             android:id="@+id/etPasswordLogin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Password"
+            android:hint="@string/edittext_hint_password"
             android:inputType="textPassword"
             android:imeOptions="actionDone"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:padding="14dp"
             android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -80,14 +81,14 @@
         android:id="@+id/tvForgot"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot?"
+        android:text="@string/forgot"
         android:gravity="center"
         android:padding="5dp"
         app:layout_constraintStart_toEndOf="@id/guideline"
         app:layout_constraintTop_toTopOf="@id/etPasswordLogin_layout"
         app:layout_constraintBottom_toBottomOf="@id/etPasswordLogin_layout"
         android:layout_marginEnd="10dp"
-        android:textSize="12dp"
+        android:textSize="12sp"
         android:textStyle="bold"
         android:textColor="@android:color/darker_gray"/>
 
@@ -95,7 +96,7 @@
         android:id="@+id/tvLoginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log In"
+        android:text="@string/log_in"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@id/llOR"
         android:textColor="@android:color/white"
@@ -103,7 +104,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="16dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:background="@drawable/btn_red_background"
         android:padding="14dp"/>
 
@@ -129,11 +130,11 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="14dp"
+            android:textSize="14sp"
             android:textColor="@color/colorGray"
             android:layout_marginStart="10dp"
             android:layout_marginEnd="10dp"
-            android:text="OR"/>
+            android:text="@string/or"/>
 
         <View
             android:layout_width="0dp"
@@ -149,7 +150,7 @@
         android:id="@+id/tvLoginGmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log In with Gmail"
+        android:text="@string/log_in_with_gmail"
         android:gravity="center"
         android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,7 +159,7 @@
         android:layout_marginStart="22dp"
         android:layout_marginEnd="22dp"
         android:layout_marginBottom="30dp"
-        android:textSize="16dp"
+        android:textSize="16sp"
         android:background="@drawable/btn_trans_background"
         android:padding="14dp"/>
 

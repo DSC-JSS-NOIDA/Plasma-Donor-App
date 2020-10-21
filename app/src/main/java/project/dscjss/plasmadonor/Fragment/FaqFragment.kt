@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.faq_fragment.*
 import project.dscjss.plasmadonor.Adapter.FaqAdapter
 import project.dscjss.plasmadonor.R
@@ -17,6 +18,7 @@ class FaqFragment : Fragment() {
         fun newInstance() = FaqFragment()
     }
 
+    private  lateinit var firebaseFirestore: FirebaseFirestore
     private lateinit var viewModel: FaqViewModel
 
     override fun onCreateView(
@@ -31,10 +33,11 @@ class FaqFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(FaqViewModel::class.java)
+        firebaseFirestore = FirebaseFirestore.getInstance()
         // TODO: Use the ViewModel
 
-        val datas = viewModel.getDatas()
-        val faqAdapter = FaqAdapter(datas)
+        val data = viewModel.getData(firebaseFirestore)
+        val faqAdapter = FaqAdapter(data)
         faqRecycle.adapter = faqAdapter
     }
 }

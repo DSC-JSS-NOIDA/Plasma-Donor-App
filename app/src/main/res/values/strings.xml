@@ -40,8 +40,8 @@
     <string name="edittext_hint_age">Age</string>
     <string name="edittext_hint_blood_group">Blood Group</string>
     <string name="edittext_hint_weight">Weight</string>
-    <string name="edittext_hint_email_id">Email ID</string>
-    <string name="edittext_hint_phone">Phone</string>
+    <string name="edittext_hint_email_id">Email</string>
+    <string name="edittext_hint_mobile">Mobile</string>
     <string name="edittext_hint_location">Location</string>
     <string name="button_text_save">Save</string>
     <string name="err_first_name">Firstname cannot be empty!</string>
@@ -63,5 +63,19 @@
     <string name="list_age">"Age            :" %s</string>
     <string name="list_blood">Blood Group: %s</string>
     <string name="list_hospital">"Hospital   :" %s</string>
+    <string name="about">About</string>
+    <string name="developed_with_by_dsc_jss">Developed with ❤ by DSC JSS</string>
+    <string name="edittext_hint_name">Name</string>
+    <string name="diabetes">Diabetes</string>
+    <string name="liver_problem">Liver Problem</string>
+    <string name="bp_problem">BP Problem</string>
+    <string name="submit">Submit</string>
+    <string name="log_in">Log In</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="edittext_hint_password">Password</string>
+    <string name="forgot">Forgot?</string>
+    <string name="or">OR</string>
+    <string name="log_in_with_gmail">Log In with Gmail</string>
+    <string name="hospital">Hospital</string>
 
 </resources>

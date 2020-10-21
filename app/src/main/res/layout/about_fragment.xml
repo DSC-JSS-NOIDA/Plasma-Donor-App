@@ -13,8 +13,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="20dp"
-        android:text="About"
+        android:textSize="20sp"
+        android:text="@string/about"
         android:textColor="@color/colorBlack"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"/>
@@ -36,8 +36,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/hackfestLogo"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="16dp"
-        android:text="Developed with ❤ by DSC JSS"
+        android:textSize="16sp"
+        android:text="@string/developed_with_by_dsc_jss"
         android:textColor="@color/colorBlack"
         android:layout_marginTop="30dp"
         android:layout_gravity="center"/>

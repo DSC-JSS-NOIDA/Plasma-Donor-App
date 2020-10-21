@@ -88,7 +88,7 @@
                 android:id="@+id/etWeight"
                 android:hint="@string/edittext_hint_weight"
                 android:text="@{user.weight}"
-                android:inputType="text"
+                android:inputType="number"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -110,9 +110,10 @@
 
             <EditText
                 android:id="@+id/etPhone"
-                android:hint="@string/edittext_hint_phone"
+                android:hint="@string/edittext_hint_mobile"
                 android:text="@{user.phone}"
-                android:inputType="number"
+                android:inputType="phone"
+                android:digits="1234567890+"
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

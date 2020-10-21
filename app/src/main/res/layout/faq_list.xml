@@ -19,18 +19,18 @@
             android:id="@+id/tvQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:padding="1dp"
             android:textStyle="bold"
             android:textColor="@color/colorBlack"
-            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
+            app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24"
             tools:text="What is plasma donor app?"/>
 
         <TextView
             android:id="@+id/tvSolution"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:layout_marginTop="4dp"
             android:padding="1dp"
             android:visibility="gone"

@@ -57,7 +57,7 @@ class ProfileFragment : Fragment() {
         init()
         if (firebaseAuth.currentUser == null) {
             startActivity(Intent(context, UserLoginActivity::class.java))
-            activity!!.finish()
+            requireActivity().finish()
         } else {
             firebaseFirestore.collection("users")
                 .whereEqualTo("uid", firebaseAuth.currentUser!!.uid)
