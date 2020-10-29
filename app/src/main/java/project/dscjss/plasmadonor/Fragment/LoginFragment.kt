@@ -3,9 +3,7 @@ package project.dscjss.plasmadonor.Fragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -17,12 +15,13 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.login_fragment.*
 import project.dscjss.plasmadonor.Activity.MainActivity
-import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
+import project.dscjss.plasmadonor.Activity.UserLoginActivity
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
 import project.dscjss.plasmadonor.ViewModel.LoginViewModel
+import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 
-class LoginFragment : Fragment(), View.OnClickListener {
+class LoginFragment : Fragment(R.layout.login_fragment), View.OnClickListener {
 
     lateinit var utilities: Utilities
     lateinit var fragmentChangeInterface: FragmentChangeInterface
@@ -32,19 +31,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private val TAG = "Login Fragment"
     private lateinit var googleSignInClient: GoogleSignInClient
 
-    companion object {
-        fun newInstance() = LoginFragment()
-    }
-
     private lateinit var viewModel: LoginViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.login_fragment, container, false)
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -193,12 +180,15 @@ class LoginFragment : Fragment(), View.OnClickListener {
                     etEmailLogin.clearFocus()
                 }
 
+                (requireActivity() as UserLoginActivity).showLoading()
                 firebaseAuth.sendPasswordResetEmail(etEmailLogin.text.toString())
                     .addOnSuccessListener {
                         utilities.showShortToast(requireContext(), "Please check your Email")
+                        (requireActivity() as UserLoginActivity).hideLoading()
                     }
                     .addOnFailureListener {
                         utilities.showShortToast(requireContext(), it.message + "")
+                        (requireActivity() as UserLoginActivity).hideLoading()
                     }
             }
 
@@ -206,17 +196,20 @@ class LoginFragment : Fragment(), View.OnClickListener {
                 if (!checkFields())
                     return
 
+                (requireActivity() as UserLoginActivity).showLoading()
                 firebaseAuth.signInWithEmailAndPassword(
                     etEmailLogin.text.toString(),
                     etPasswordLogin.text.toString()
                 )
                     .addOnSuccessListener {
                         utilities.showShortToast(requireContext(), "Login Success: ${it.user!!.displayName}")
+                        (requireActivity() as UserLoginActivity).hideLoading()
                         startActivity(Intent(context, MainActivity::class.java))
                         requireActivity().finish()
                     }
                     .addOnFailureListener {
                         utilities.showShortToast(requireContext(), it.message + "")
+                        (requireActivity() as UserLoginActivity).hideLoading()
                     }
             }
 

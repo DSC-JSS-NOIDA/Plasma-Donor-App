@@ -3,9 +3,7 @@ package project.dscjss.plasmadonor.Fragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,30 +13,19 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.login_fragment.tvLogin
 import kotlinx.android.synthetic.main.signup_fragment.*
 import project.dscjss.plasmadonor.Activity.MainActivity
-import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
+import project.dscjss.plasmadonor.Activity.UserLoginActivity
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
 import project.dscjss.plasmadonor.ViewModel.SignupViewModel
+import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 
-class SignupFragment : Fragment(), View.OnClickListener {
+class SignupFragment : Fragment(R.layout.signup_fragment), View.OnClickListener {
 
     lateinit var utilities: Utilities
     lateinit var fragmentChangeInterface: FragmentChangeInterface
     private lateinit var viewModel: SignupViewModel
     private lateinit var firebaseAuth: FirebaseAuth
     val TAG = "Signup Fragment"
-
-    companion object {
-        fun newInstance() = SignupFragment()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.signup_fragment, container, false)
-    }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -82,6 +69,7 @@ class SignupFragment : Fragment(), View.OnClickListener {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     Toast.makeText(context, "Data Inserted", Toast.LENGTH_SHORT).show()
+                    (requireActivity() as UserLoginActivity).hideLoading()
                     startActivity(Intent(context, MainActivity::class.java))
                     activity?.finish()
                 } else {
@@ -159,6 +147,8 @@ class SignupFragment : Fragment(), View.OnClickListener {
                     if (!checkFields()) {
                         return
                     }
+
+                    (requireActivity() as UserLoginActivity).showLoading()
                     firebaseAuth.createUserWithEmailAndPassword(etEmail.text.toString(), etPassword.text.toString())
                         .addOnCompleteListener {
                             it.addOnSuccessListener {
@@ -168,6 +158,7 @@ class SignupFragment : Fragment(), View.OnClickListener {
                             }
                             it.addOnFailureListener { e ->
                                 utilities.showShortToast(requireContext(), e.message.toString())
+                                (requireActivity() as UserLoginActivity).hideLoading()
                             }
                         }
                 }

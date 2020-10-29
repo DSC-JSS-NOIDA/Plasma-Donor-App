@@ -1,12 +1,13 @@
 package project.dscjss.plasmadonor.Activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.firebase.auth.FirebaseAuth
+import project.dscjss.plasmadonor.Fragment.LoadingFragment
 import project.dscjss.plasmadonor.Fragment.LoginFragment
-import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 import project.dscjss.plasmadonor.R
+import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 
 class UserLoginActivity : AppCompatActivity(), FragmentChangeInterface {
 
@@ -31,5 +32,18 @@ class UserLoginActivity : AppCompatActivity(), FragmentChangeInterface {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.loginFrame, fragment).commit()
         }
+    }
+
+    fun showLoading() {
+        val fragment = LoadingFragment()
+        supportFragmentManager.beginTransaction()
+            .add(fragment, "loading").commit()
+    }
+
+    fun hideLoading() {
+        val fragment = supportFragmentManager.findFragmentByTag("loading") ?: return
+
+        supportFragmentManager.beginTransaction()
+            .remove(fragment).commit()
     }
 }
