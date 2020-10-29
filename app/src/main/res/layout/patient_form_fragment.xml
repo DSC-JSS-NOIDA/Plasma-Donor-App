@@ -21,7 +21,7 @@
 
             <EditText
                 android:id="@+id/etName"
-                android:hint="Name"
+                android:hint="@string/edittext_hint_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -47,7 +47,7 @@
 
             <EditText
                 android:id="@+id/etAge"
-                android:hint="Age"
+                android:hint="@string/edittext_hint_age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -73,7 +73,8 @@
 
             <EditText
                 android:id="@+id/etLocation"
-                android:hint="Location"
+                android:hint="@string/edittext_hint_location"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -82,7 +83,8 @@
 
             <EditText
                 android:id="@+id/etHospital"
-                android:hint="Hospital"
+                android:hint="@string/hospital"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -92,7 +94,7 @@
 
             <EditText
                 android:id="@+id/etMobile"
-                android:hint="Mobile"
+                android:hint="@string/edittext_hint_mobile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -103,7 +105,7 @@
 
             <EditText
                 android:id="@+id/etEmail"
-                android:hint="Email ID"
+                android:hint="@string/edittext_hint_email_id"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -116,8 +118,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:text="Diabetes"
-                android:textSize="20dp"
+                android:text="@string/diabetes"
+                android:textSize="20sp"
                 android:layout_marginTop="10dp"
                 android:paddingStart="10dp"/>
 
@@ -126,8 +128,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:text="Liver Problem"
-                android:textSize="20dp"
+                android:text="@string/liver_problem"
+                android:textSize="20sp"
                 android:layout_marginTop="10dp"
                 android:paddingStart="10dp"/>
 
@@ -137,8 +139,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_marginStart="16dp"
-                android:text="BP Problem"
-                android:textSize="20dp"
+                android:text="@string/bp_problem"
+                android:textSize="20sp"
                 android:layout_marginTop="10dp"
                 android:paddingStart="10dp"/>
 
@@ -159,7 +161,7 @@
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/btn_red_background"
-        android:text="Submit"
+        android:text="@string/submit"
         android:textColor="@android:color/white" />
 
 </FrameLayout>

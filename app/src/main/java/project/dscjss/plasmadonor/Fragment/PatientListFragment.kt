@@ -3,13 +3,13 @@ package project.dscjss.plasmadonor.Fragment
 import android.os.Bundle
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.patient_list_fragment.*
+import project.dscjss.plasmadonor.Adapter.PatientListAdapter
 import androidx.lifecycle.ViewModelProvider
 import androidx.paging.PagedList
 import com.firebase.ui.firestore.paging.FirestorePagingOptions
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import kotlinx.android.synthetic.main.patient_list_fragment.*
-import project.dscjss.plasmadonor.Adapter.PatientListAdapter
 import project.dscjss.plasmadonor.Fragment.data.Patient
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.ViewModel.PatientListViewModel

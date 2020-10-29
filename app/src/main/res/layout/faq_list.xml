@@ -20,11 +20,11 @@
             android:id="@+id/tvQuestion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/ic_baseline_keyboard_arrow_down_24"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"
+            app:drawableEndCompat="@drawable/ic_baseline_keyboard_arrow_down_24"
             tools:text="What is plasma donor app?" />
 
         <TextView
@@ -34,7 +34,7 @@
             android:layout_marginTop="4dp"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:visibility="gone"
             tools:text="It is an android application" />
 

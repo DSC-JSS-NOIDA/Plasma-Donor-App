@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold"
             tools:text="Name : " />
 
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp"
+            android:textSize="16sp"
             tools:text="Location : " />
 
         <TextView
@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp"
+            android:textSize="16sp"
             tools:text="Mobile : " />
 
         <TextView
@@ -48,7 +48,7 @@
             android:layout_height="wrap_content"
             android:padding="1dp"
             android:textColor="@color/colorBlack"
-            android:textSize="16dp"
+            android:textSize="16sp"
             tools:text="Hospital : " />
 
         <LinearLayout
@@ -63,7 +63,7 @@
                 android:layout_weight="1"
                 android:padding="1dp"
                 android:textColor="@color/colorBlack"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 tools:text="Age : " />
 
             <TextView
@@ -73,7 +73,7 @@
                 android:layout_weight="1"
                 android:padding="1dp"
                 android:textColor="@color/colorBlack"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 tools:text="Blood Group : " />
 
         </LinearLayout>

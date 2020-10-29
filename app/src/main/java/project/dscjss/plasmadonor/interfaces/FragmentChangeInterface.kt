@@ -1,4 +1,4 @@
-package project.dscjss.plasmadonor.Interface
+package project.dscjss.plasmadonor.interfaces
 
 import androidx.fragment.app.Fragment
 

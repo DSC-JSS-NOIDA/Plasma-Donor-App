@@ -1,9 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="user"
+            type="project.dscjss.plasmadonor.models.ProfileDetail" />
+    </data>
+<FrameLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment.EditProfileFragment">
+    tools:context=".Fragment.editprofile.EditProfileFragment">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -21,16 +29,22 @@
 
             <EditText
                 android:id="@+id/etFirstName"
-                android:hint="First Name"
+                android:hint="@string/edittext_hint_first_name"
+                android:text="@{user.firstName}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="30dp" />
 
             <EditText
                 android:id="@+id/etLastName"
-                android:hint="Last Name"
+                android:hint="@string/edittext_hint_last_name"
+                android:text="@{user.lastName}"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -40,7 +54,7 @@
 
             <Spinner
                 android:id="@+id/etGender"
-                android:hint="Gender"
+                android:hint="@string/edittext_hint_gender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -49,7 +63,10 @@
 
             <EditText
                 android:id="@+id/etAge"
-                android:hint="Age"
+                android:hint="@string/edittext_hint_age"
+                android:text="@{user.age}"
+                android:inputType="number"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -58,7 +75,9 @@
 
             <Spinner
                 android:id="@+id/etBloodGrp"
-                android:hint="Blood Group"
+                android:hint="@string/edittext_hint_blood_group"
+                android:inputType="text"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -67,7 +86,10 @@
 
             <EditText
                 android:id="@+id/etWeight"
-                android:hint="Weight"
+                android:hint="@string/edittext_hint_weight"
+                android:text="@{user.weight}"
+                android:inputType="number"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -76,7 +98,10 @@
 
             <EditText
                 android:id="@+id/etEmail"
-                android:hint="Email ID"
+                android:text="@{user.emailId}"
+                android:hint="@string/edittext_hint_email_id"
+                android:imeOptions="actionNext"
+                android:inputType="textEmailAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -85,7 +110,11 @@
 
             <EditText
                 android:id="@+id/etPhone"
-                android:hint="Phone"
+                android:hint="@string/edittext_hint_mobile"
+                android:text="@{user.phone}"
+                android:inputType="phone"
+                android:digits="1234567890+"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -94,7 +123,10 @@
 
             <EditText
                 android:id="@+id/etLocation"
-                android:hint="Location"
+                android:hint="@string/edittext_hint_location"
+                android:text="@{user.location}"
+                android:inputType="text"
+                android:imeOptions="actionDone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
@@ -118,7 +150,16 @@
         android:layout_marginEnd="45dp"
         android:layout_marginBottom="20dp"
         android:background="@drawable/btn_red_background"
-        android:text="Save"
+        android:text="@string/button_text_save"
         android:textColor="@android:color/white" />
 
+    <ProgressBar
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:id="@+id/progress_circular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
 </FrameLayout>
+</layout>

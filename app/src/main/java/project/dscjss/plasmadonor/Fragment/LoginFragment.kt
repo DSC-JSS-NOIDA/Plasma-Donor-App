@@ -17,7 +17,7 @@ import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.login_fragment.*
 import project.dscjss.plasmadonor.Activity.MainActivity
-import project.dscjss.plasmadonor.Interface.FragmentChangeInterface
+import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
 import project.dscjss.plasmadonor.ViewModel.LoginViewModel
