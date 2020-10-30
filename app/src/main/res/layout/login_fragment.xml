@@ -31,7 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/tvLogin" />
 
-
     <EditText
         android:id="@+id/etEmailLogin"
         android:layout_width="match_parent"
@@ -147,10 +146,10 @@
         android:id="@+id/tvLoginGmail"
         android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginBottom="30dp"
         android:layout_gravity="center"
         android:layout_marginStart="17dp"
         android:layout_marginEnd="17dp"
+        android:layout_marginBottom="30dp"
         app:buttonSize="wide"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
