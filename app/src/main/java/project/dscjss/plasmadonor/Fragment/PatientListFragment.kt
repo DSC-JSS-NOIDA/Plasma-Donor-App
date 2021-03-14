@@ -1,6 +1,9 @@
 package project.dscjss.plasmadonor.Fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.patient_list_fragment.*
@@ -24,6 +27,11 @@ class PatientListFragment : Fragment(R.layout.patient_list_fragment) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(PatientListViewModel::class.java)
         getData()
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        requireActivity().title = "Patients"
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private fun getData() {

@@ -20,6 +20,7 @@ class AboutFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "About"
         return inflater.inflate(R.layout.about_fragment, container, false)
     }
 

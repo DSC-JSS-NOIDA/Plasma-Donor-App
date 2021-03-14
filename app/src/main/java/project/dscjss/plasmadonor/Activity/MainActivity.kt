@@ -51,6 +51,8 @@ class MainActivity :
         supportActionBar!!.setHomeButtonEnabled(true)
         toggle.syncState()
         nav_view.setNavigationItemSelectedListener(this)
+
+        initiate(FeedsFragment())
     }
 
     override fun changeFragment(fragment: Fragment) {

@@ -3,7 +3,9 @@ package project.dscjss.plasmadonor.Fragment
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -44,6 +46,11 @@ class LoginFragment : Fragment(R.layout.login_fragment), View.OnClickListener {
         tvForgot.setOnClickListener(this)
         tvLoginButton.setOnClickListener(this)
         tvLoginGmail.setOnClickListener(this)
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        requireActivity().title = "Log In"
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private fun signInGmail() {

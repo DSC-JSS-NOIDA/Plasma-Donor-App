@@ -25,6 +25,7 @@ class DonorInfoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "Donor's Information"
         return inflater.inflate(R.layout.donor_info_fragment, container, false)
     }
 

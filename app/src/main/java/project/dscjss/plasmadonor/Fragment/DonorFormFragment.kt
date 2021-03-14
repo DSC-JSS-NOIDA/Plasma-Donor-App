@@ -40,6 +40,7 @@ class DonorFormFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.donor_form_fragment, container, false)
+        requireActivity().title = "Donor's Form"
         return view
     }
 
