@@ -79,6 +79,8 @@ dependencies {
     // Circle image View
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    implementation 'com.airbnb.android:lottie:3.6.1'
+
     // Paging
     implementation 'androidx.paging:paging-runtime-ktx:2.1.2'
 
