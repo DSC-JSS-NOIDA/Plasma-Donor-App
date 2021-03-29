@@ -47,6 +47,7 @@ class FaqFragment : Fragment(R.layout.faq_fragment) {
             .build()
 
         val adapter = FaqAdapter(
+            requireContext(),
             options,
             onProgress = { progress_circular.isVisible = true },
             onLoaded = { progress_circular.isVisible = false }
