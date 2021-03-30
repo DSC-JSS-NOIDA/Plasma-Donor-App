@@ -16,12 +16,11 @@ import project.dscjss.plasmadonor.Fragment.data.Faq
 import project.dscjss.plasmadonor.R
 
 class FaqAdapter(
-    private val context : Context,
+    private val context: Context,
     options: FirestorePagingOptions<Faq>,
     private val onProgress: () -> Unit,
     private val onLoaded: () -> Unit,
 ) : FirestorePagingAdapter<Faq, FaqAdapter.FaqViewHolder>(options) {
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FaqViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -30,7 +29,7 @@ class FaqAdapter(
     }
 
     override fun onBindViewHolder(viewHolder: FaqViewHolder, p1: Int, faq: Faq) {
-        viewHolder.bind(viewHolder,faq)
+        viewHolder.bind(viewHolder, faq)
     }
 
     override fun onError(e: Exception) {
@@ -52,18 +51,19 @@ class FaqAdapter(
         override val containerView: View
     ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-        fun bind(viewHolder: FaqViewHolder,faq: Faq) {
+        fun bind(viewHolder: FaqViewHolder, faq: Faq) {
             tvQuestion.text = faq.question
             tvSolution.text = faq.solution
 
             viewHolder.itemView.setOnClickListener {
-                val drawable = if(tvSolution.isVisible)
-                    ContextCompat.getDrawable(context,R.drawable.ic_baseline_keyboard_arrow_down_24)!!
+                val drawable = if (tvSolution.isVisible)
+                    ContextCompat.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_down_24)!!
                 else
-                    ContextCompat.getDrawable(context,R.drawable.ic_baseline_keyboard_arrow_up_24)!!
+                    ContextCompat.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_up_24)!!
 
-                tvQuestion.setCompoundDrawablesWithIntrinsicBounds(null,null,drawable,null)
-                tvSolution.isVisible = !tvSolution.isVisible }
+                tvQuestion.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null)
+                tvSolution.isVisible = !tvSolution.isVisible
+            }
         }
     }
 }
