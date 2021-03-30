@@ -13,13 +13,14 @@
         android:text="@string/plasma_donor"
         android:textColor="@android:color/white"
         android:textSize="32sp" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="300dp"
-        android:layout_height="200dp"
-        app:lottie_rawRes="@raw/loadinglottie"
+        android:layout_height="100dp"
+        android:layout_marginTop="300dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        android:layout_marginTop="30dp"
-        />
+        app:lottie_rawRes="@raw/loadinglottie"
+        app:lottie_speed="0.4" />
 
 </LinearLayout>
