@@ -213,8 +213,8 @@ Our heartiest thanks to these contributors ✨✨:
 <table>
 	<tr>
 		<td>
-			<a href="https://github.com/DSC-JSS-NOIDA/DSC-JSS-NOIDA/graphs/contributors">
-  				<img src="https://contrib.rocks/image?repo=DSC-JSS-NOIDA/DSC-JSS-NOIDA" />
+			<a href="https://github.com/DSC-JSS-NOIDA/Plasma-Donor-App/graphs/contributors">
+  				<img src="https://contrib.rocks/image?repo=DSC-JSS-NOIDA/Plasma-Donor-App" />
 			</a>
 		</td>
 	</tr>
