@@ -199,9 +199,9 @@ https://hacktoberfest.digitalocean.com/profile
 
 <p align="center">
  <a>
- <img  width="70%" height="30%" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png">
+ <img  width="50%" height="10%" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png">
 
- <img  width="70%" height="30%" src="https://user-images.githubusercontent.com/42115530/94295926-a5741880-ff7f-11ea-890b-39ad20ac0f21.png">
+ <img  width="50%" height="10%" src="https://user-images.githubusercontent.com/42115530/94295926-a5741880-ff7f-11ea-890b-39ad20ac0f21.png">
  
 </p>
 
