@@ -1,7 +1,7 @@
 <div align="center"> <img align="center" alt="dschackfest2020" src="https://user-images.githubusercontent.com/42115530/94295926-a5741880-ff7f-11ea-890b-39ad20ac0f21.png" height='150' width='350'></div>
 
 # Plasma Donor App
-#### An Open Source App which fills the gap between the patients and the Plasma Donors. Beginner Friendly Repository made for Open Source Enthusiast who can contribute to the App during HacktoberFest 2020.
+#### An Open Source App which fills the gap between the patients and the Plasma Donors. This is a Beginner Friendly Repository made for Open Source Enthusiasts who can contribute to the App during HacktoberFest 2020.
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/DSC-JSS-NOIDA/Plasma-Donor-App/blob/master/LICENSE)
 ![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-yellow.svg?style=flat)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
@@ -194,3 +194,28 @@ https://hacktoberfest.digitalocean.com/profile
 <img src=https://img.shields.io/badge/youtube-%23FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white alt=youtube style="margin-bottom: 5px;" />
 </a> 
 </div> 
+
+## Plasma Donor App is a part of these open source programs:
+
+<p align="center">
+ <a>
+ <img  width="70%" height="30%" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png">
+
+ 
+</p>
+
+</br>
+
+## Contributors 
+
+Our heartiest thanks to these contributors ✨✨:
+
+<table>
+	<tr>
+		<td>
+			<a href="https://github.com/DSC-JSS-NOIDA/DSC-JSS-NOIDA/graphs/contributors">
+  				<img src="https://contrib.rocks/image?repo=DSC-JSS-NOIDA/DSC-JSS-NOIDA" />
+			</a>
+		</td>
+	</tr>
+</table>
