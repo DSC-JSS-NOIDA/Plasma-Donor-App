@@ -37,9 +37,9 @@ class MainActivity :
 
         init()
 
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.mainFrame, ProfileFragment())
-//            .commit()
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.mainFrame, FeedsFragment())
+            .commit()
     }
     private fun init() {
 
