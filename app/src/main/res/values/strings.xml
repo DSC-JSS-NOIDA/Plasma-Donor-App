@@ -79,5 +79,8 @@
     <string name="hospital">Hospital</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_patient_call">Add Patient</string>
+    <string name="add_donor_call">Add Donor</string>
+    <string name="fab_content_desc">Floating Action Button</string>
 
 </resources>

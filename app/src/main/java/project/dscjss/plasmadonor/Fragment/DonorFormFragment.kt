@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import io.github.yavski.fabspeeddial.FabSpeedDial
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.donor_form_fragment.*
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
