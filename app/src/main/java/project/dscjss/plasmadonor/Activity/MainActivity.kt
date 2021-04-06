@@ -41,7 +41,7 @@ class MainActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        init()
         val fabSpeedDial = findViewById<FabSpeedDial>(R.id.fab_speed_dial)
         fabSpeedDial.setMenuListener(object: SimpleMenuListenerAdapter() {
             override fun onPrepareMenu(navigationMenu: NavigationMenu):Boolean {
