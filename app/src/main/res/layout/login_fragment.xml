@@ -51,7 +51,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.8" />
+        app:layout_constraintGuide_end="89dp" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/etPasswordLogin_layout"
