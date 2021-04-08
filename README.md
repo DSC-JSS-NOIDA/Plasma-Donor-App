@@ -1,7 +1,7 @@
 <div align="center"> <img align="center" alt="dschackfest2020" src="https://user-images.githubusercontent.com/42115530/94295926-a5741880-ff7f-11ea-890b-39ad20ac0f21.png" height='150' width='350'></div>
 
 # Plasma Donor App
-#### An Open Source App which fills the gap between the patients and the Plasma Donors. Beginnner Friendly Repository made for Open Source Enthusiast who can make the contribution in the App during HacktoberFest 2020. 
+#### An Open Source App which fills the gap between the patients and the Plasma Donors. This is a Beginner Friendly Repository made for Open Source Enthusiasts who can contribute to the App during HacktoberFest 2020.
 [![License](https://img.shields.io/badge/License-MIT-blue)](https://github.com/DSC-JSS-NOIDA/Plasma-Donor-App/blob/master/LICENSE)
 ![first-timers-only](https://img.shields.io/badge/first--timers--only-friendly-yellow.svg?style=flat)
 ![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat)
@@ -75,7 +75,7 @@ https://github.com/DSC-JSS-NOIDA/Plasma-Donor-App
 ###### When you’re on the main page for the repository, you’ll see a button to "Star" and “Fork” the repository on your upper right-hand side of the page, underneath your user icon.
 
 ### 4. Clone the Repository
-###### To make your own local copy of the repository you would like to contribute to, let’s first open up a terminal window.
+###### To make your local copy of the repository you would like to contribute to, let’s first open up a terminal window. 
 ###### We’ll use the git clone command along with the URL that points to your fork of the repository.
 ###### This URL will be similar to the URL above, except now it will end with .git. In the example above, the URL will look like this:
 
@@ -127,7 +127,7 @@ git push --set-upstream origin new-branch
 ![](./AppReadmeFiles/push_changes.png)
 
 ### 9. Update Local Repository
-###### While working on a project alongside other contributors, it is important for you to keep your local repository up-to-date with the project as you don’t want to make a pull request for code that will cause conflicts. To keep your local copy of the code base updated, you’ll need to sync changes.
+###### While working on a project alongside other contributors, you need to keep your local repository up-to-date with the project as you don’t want to make a pull request for code that will cause conflicts. To keep your local copy of the codebase updated, you’ll need to sync changes.
 ###### We’ll first go over configuring a remote for the fork, then syncing the fork.
 
 ### 10. Configure a Remote for the Fork
@@ -135,7 +135,7 @@ git push --set-upstream origin new-branch
 ```
 git remote add upstream https://github.com/DSC-JSS-NOIDA/Plasma-Donor-App
 ```
-###### In this example, // upstream // is the shortname we have supplied for the remote repository since in terms of Git, “upstream” refers to the repository that you cloned from. If you want to add a remote pointer to the repository of a collaborator, you may want to provide that collaborator’s username or a shortened nickname for the shortname.
+###### In this example, // upstream // is the short name we have supplied for the remote repository since in terms of Git, “upstream” refers to the repository that you cloned from. If you want to add a remote pointer to the repository of a collaborator, you may want to provide that collaborator’s username or a shortened nickname for the short name.
 
 ### 11. Sync the Fork
 ###### Once you have configured a remote that references the upstream and original repository on GitHub, you are ready to sync your fork of the repository to keep it up-to-date.
@@ -194,3 +194,29 @@ https://hacktoberfest.digitalocean.com/profile
 <img src=https://img.shields.io/badge/youtube-%23FF0000.svg?&style=for-the-badge&logo=youtube&logoColor=white alt=youtube style="margin-bottom: 5px;" />
 </a> 
 </div> 
+
+## Plasma Donor App is a part of these open source programs:
+
+<p align="center">
+ <a>
+ <img  width="50%" height="10%" src="https://raw.githubusercontent.com/GirlScriptSummerOfCode/MentorshipProgram/master/GSsoc%20Type%20Logo%20Black.png">
+
+ <img  width="50%" height="10%" src="https://user-images.githubusercontent.com/42115530/94295926-a5741880-ff7f-11ea-890b-39ad20ac0f21.png">
+ 
+</p>
+
+</br>
+
+## Contributors 
+
+Our heartiest thanks to these contributors ✨✨:
+
+<table>
+	<tr>
+		<td>
+			<a href="https://github.com/DSC-JSS-NOIDA/Plasma-Donor-App/graphs/contributors">
+  				<img src="https://contrib.rocks/image?repo=DSC-JSS-NOIDA/Plasma-Donor-App" />
+			</a>
+		</td>
+	</tr>
+</table>

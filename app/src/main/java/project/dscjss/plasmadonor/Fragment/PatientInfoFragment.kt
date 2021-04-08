@@ -22,6 +22,7 @@ class PatientInfoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        requireActivity().title = "Patient's Information"
         return inflater.inflate(R.layout.patient_info_fragment, container, false)
     }
 

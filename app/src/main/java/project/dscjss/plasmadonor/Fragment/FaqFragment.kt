@@ -1,6 +1,9 @@
 package project.dscjss.plasmadonor.Fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -26,6 +29,11 @@ class FaqFragment : Fragment(R.layout.faq_fragment) {
         getData()
     }
 
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        requireActivity().title = "FAQs"
+        return super.onCreateView(inflater, container, savedInstanceState)
+    }
+
     private fun getData() {
         val config: PagedList.Config = PagedList.Config.Builder()
             .setEnablePlaceholders(false)
@@ -39,6 +47,7 @@ class FaqFragment : Fragment(R.layout.faq_fragment) {
             .build()
 
         val adapter = FaqAdapter(
+            requireContext(),
             options,
             onProgress = { progress_circular.isVisible = true },
             onLoaded = { progress_circular.isVisible = false }

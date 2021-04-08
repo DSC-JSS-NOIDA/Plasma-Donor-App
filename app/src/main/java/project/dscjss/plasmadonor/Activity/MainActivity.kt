@@ -44,10 +44,6 @@ class MainActivity :
 
         init()
 
-//        supportFragmentManager.beginTransaction()
-//            .replace(R.id.mainFrame, ProfileFragment())
-//            .commit()
-
         val fabSpeedDial = findViewById<FabSpeedDial>(R.id.fab_speed_dial)
         fabSpeedDial.setMenuListener(object: SimpleMenuListenerAdapter() {
             override fun onPrepareMenu(navigationMenu: NavigationMenu):Boolean {
@@ -64,6 +60,11 @@ class MainActivity :
             }
         })
 
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.mainFrame, FeedsFragment())
+            .commit()
+
     }
     private fun init() {
 
@@ -75,6 +76,8 @@ class MainActivity :
         supportActionBar!!.setHomeButtonEnabled(true)
         toggle.syncState()
         nav_view.setNavigationItemSelectedListener(this)
+
+        initiate(FeedsFragment())
     }
 
     override fun changeFragment(fragment: Fragment) {

@@ -1,8 +1,10 @@
 package project.dscjss.plasmadonor.Adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.firebase.ui.firestore.paging.FirestorePagingAdapter
@@ -14,6 +16,7 @@ import project.dscjss.plasmadonor.Fragment.data.Faq
 import project.dscjss.plasmadonor.R
 
 class FaqAdapter(
+    private val context: Context,
     options: FirestorePagingOptions<Faq>,
     private val onProgress: () -> Unit,
     private val onLoaded: () -> Unit,
@@ -26,7 +29,7 @@ class FaqAdapter(
     }
 
     override fun onBindViewHolder(viewHolder: FaqViewHolder, p1: Int, faq: Faq) {
-        viewHolder.bind(faq)
+        viewHolder.bind(viewHolder, faq)
     }
 
     override fun onError(e: Exception) {
@@ -44,15 +47,23 @@ class FaqAdapter(
         }
     }
 
-    class FaqViewHolder(
+    inner class FaqViewHolder(
         override val containerView: View
     ) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
-        fun bind(faq: Faq) {
+        fun bind(viewHolder: FaqViewHolder, faq: Faq) {
             tvQuestion.text = faq.question
             tvSolution.text = faq.solution
 
-            tvQuestion.setOnClickListener { tvSolution.isVisible = !tvSolution.isVisible }
+            viewHolder.itemView.setOnClickListener {
+                val drawable = if (tvSolution.isVisible)
+                    ContextCompat.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_down_24)!!
+                else
+                    ContextCompat.getDrawable(context, R.drawable.ic_baseline_keyboard_arrow_up_24)!!
+
+                tvQuestion.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null)
+                tvSolution.isVisible = !tvSolution.isVisible
+            }
         }
     }
 }

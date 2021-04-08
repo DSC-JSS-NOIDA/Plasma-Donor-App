@@ -1,6 +1,9 @@
 package project.dscjss.plasmadonor.Fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -24,6 +27,11 @@ class DonorListFragment : Fragment(R.layout.donor_list_fragment) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(DonorListViewModel::class.java)
         getData()
+    }
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        requireActivity().title = "Donors"
+        return super.onCreateView(inflater, container, savedInstanceState)
     }
 
     private fun getData() {
