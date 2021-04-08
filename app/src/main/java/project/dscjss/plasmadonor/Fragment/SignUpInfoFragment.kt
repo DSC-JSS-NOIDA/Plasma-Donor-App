@@ -20,39 +20,40 @@ import project.dscjss.plasmadonor.Activity.UserLoginActivity
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
 
-class SignUpInfoFragment : Fragment(),View.OnClickListener {
+class SignUpInfoFragment : Fragment(), View.OnClickListener {
     lateinit var utilities: Utilities
-    lateinit var tietFirstName:TextInputEditText
-    lateinit var tietLastName:TextInputEditText
-    lateinit var tietEmail:TextInputEditText
-    lateinit var tietPassword:TextInputEditText
-    lateinit var tilLastName:TextInputLayout
-    lateinit var tilFirstName:TextInputLayout
-    lateinit var btnSignUp:MaterialButton
+    lateinit var tietFirstName: TextInputEditText
+    lateinit var tietLastName: TextInputEditText
+    lateinit var tietEmail: TextInputEditText
+    lateinit var tietPassword: TextInputEditText
+    lateinit var tilLastName: TextInputLayout
+    lateinit var tilFirstName: TextInputLayout
+    lateinit var btnSignUp: MaterialButton
     private lateinit var firebaseAuth: FirebaseAuth
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         firebaseAuth = FirebaseAuth.getInstance()
         utilities = Utilities
-        val view= inflater.inflate(R.layout.sign_up_page, container, false)
-        tietFirstName=view.findViewById(R.id.tietFirstName)
-        tietLastName=view.findViewById(R.id.tietLastName)
-        tietEmail=view.findViewById(R.id.tietEmail)
-        tietPassword=view.findViewById(R.id.tietPassword)
-        tilLastName=view.findViewById(R.id.tilLastName1)
-        tilFirstName=view.findViewById(R.id.tilFirstName1)
-        btnSignUp=view.findViewById(R.id.btnSignUp)
+        val view = inflater.inflate(R.layout.sign_up_page, container, false)
+        tietFirstName = view.findViewById(R.id.tietFirstName)
+        tietLastName = view.findViewById(R.id.tietLastName)
+        tietEmail = view.findViewById(R.id.tietEmail)
+        tietPassword = view.findViewById(R.id.tietPassword)
+        tilLastName = view.findViewById(R.id.tilLastName1)
+        tilFirstName = view.findViewById(R.id.tilFirstName1)
+        btnSignUp = view.findViewById(R.id.btnSignUp)
         tietFirstName.setOnClickListener(this)
         btnSignUp.setOnClickListener(this)
         return view
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.btnSignUp->{
+        when (v!!.id) {
+            R.id.btnSignUp -> {
                 if (!checkFields()) {
                     return
                 }
@@ -150,11 +151,8 @@ class SignUpInfoFragment : Fragment(),View.OnClickListener {
             isValid = false
         } else {
             tietPassword.error = null
-           tietPassword.clearFocus()
+            tietPassword.clearFocus()
         }
-
         return isValid
-
     }
-
 }

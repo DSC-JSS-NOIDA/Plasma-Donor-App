@@ -7,12 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInClient
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.card.MaterialCardView
-import com.google.firebase.auth.FirebaseAuth
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 
@@ -23,7 +19,8 @@ class SignUpBegFragment : Fragment(), View.OnClickListener {
     lateinit var facebookSignUp: MaterialCardView
     lateinit var fragmentChangeInterface: FragmentChangeInterface
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
@@ -49,11 +46,11 @@ class SignUpBegFragment : Fragment(), View.OnClickListener {
             R.id.tvSignIn -> {
                 fragmentChangeInterface.changeFragment(SignInBegFragment())
             }
-            R.id.googleSignUp->{
-                Toast.makeText(requireContext(),"SignUp through google",Toast.LENGTH_SHORT).show()
+            R.id.googleSignUp -> {
+                Toast.makeText(requireContext(), "SignUp through google", Toast.LENGTH_SHORT).show()
             }
-            R.id.facebookSignUp->{
-                Toast.makeText(requireContext(),"SignUp through facebook",Toast.LENGTH_SHORT).show()
+            R.id.facebookSignUp -> {
+                Toast.makeText(requireContext(), "SignUp through facebook", Toast.LENGTH_SHORT).show()
             }
         }
     }

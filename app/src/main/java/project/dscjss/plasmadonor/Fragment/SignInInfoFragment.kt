@@ -7,34 +7,32 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.login_fragment.*
 import project.dscjss.plasmadonor.Activity.MainActivity
 import project.dscjss.plasmadonor.Activity.UserLoginActivity
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.Util.Utilities
-import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 
-class SignInInfoFragment : Fragment(),View.OnClickListener {
-    lateinit var tietSignInEmail:TextInputEditText
-    lateinit var tietSignInPassword:TextInputEditText
-    lateinit var tvForgotPassword:TextView
-    lateinit var btnSignIn:MaterialButton
+class SignInInfoFragment : Fragment(), View.OnClickListener {
+    lateinit var tietSignInEmail: TextInputEditText
+    lateinit var tietSignInPassword: TextInputEditText
+    lateinit var tvForgotPassword: TextView
+    lateinit var btnSignIn: MaterialButton
     lateinit var utilities: Utilities
     lateinit var firebaseAuth: FirebaseAuth
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.login_page, container, false)
-        tietSignInEmail=view.findViewById(R.id.tietSignInEmail)
-        tietSignInPassword=view.findViewById(R.id.tietSignInPassword)
-        tvForgotPassword=view.findViewById(R.id.tvForgotPassword)
-        btnSignIn=view.findViewById(R.id.btnSignIn)
+        val view = inflater.inflate(R.layout.login_page, container, false)
+        tietSignInEmail = view.findViewById(R.id.tietSignInEmail)
+        tietSignInPassword = view.findViewById(R.id.tietSignInPassword)
+        tvForgotPassword = view.findViewById(R.id.tvForgotPassword)
+        btnSignIn = view.findViewById(R.id.btnSignIn)
         init()
 
         return view
@@ -48,8 +46,8 @@ class SignInInfoFragment : Fragment(),View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        when(v!!.id){
-            R.id.btnSignIn->{
+        when (v!!.id) {
+            R.id.btnSignIn -> {
                 if (!checkFields())
                     return
 
@@ -69,7 +67,7 @@ class SignInInfoFragment : Fragment(),View.OnClickListener {
                         (requireActivity() as UserLoginActivity).hideLoading()
                     }
             }
-            R.id.tvForgotPassword->{
+            R.id.tvForgotPassword -> {
                 if (tietSignInEmail.text.isNullOrEmpty()) {
                     tietSignInEmail.error = "Enter Email to receive to Reset Password form"
                     tietSignInEmail.requestFocus()
@@ -114,5 +112,4 @@ class SignInInfoFragment : Fragment(),View.OnClickListener {
 
         return true
     }
-
 }
