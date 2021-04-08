@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgLogoPlasma"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/plasma_logo" />
+
+    <TextView
+        android:id="@+id/txtPlasmaDonor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgLogoPlasma"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="Plasma Donor"
+        android:textColor="#004ba0"
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@+id/llDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txtPlasmaDonor"
+        android:layout_marginTop="35dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="Name :"
+            android:layout_marginBottom="5dp"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilFirstName1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:textColorHint="@color/colorPrimary"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorBlack">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietFirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="Enter your first name"
+                android:lines="1"
+                android:paddingStart="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilLastName1"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:textColorHint="@color/colorPrimary"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            android:layout_marginTop="5dp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorBlack">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietLastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="Enter your last name"
+                android:lines="1"
+                android:paddingStart="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Email :"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:textColorHint="@color/colorPrimary"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorBlack">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="Enter your email"
+                android:inputType="textEmailAddress"
+                android:lines="1"
+                android:paddingStart="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Password :"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:textColorHint="@color/colorPrimary"
+            app:boxCornerRadiusBottomEnd="8dp"
+            app:boxCornerRadiusBottomStart="8dp"
+            app:boxCornerRadiusTopEnd="8dp"
+            app:boxCornerRadiusTopStart="8dp"
+            app:boxStrokeColor="@color/colorPrimary"
+            app:hintTextColor="@color/colorBlack"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tietPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="Enter your password"
+                android:inputType="textPassword"
+                android:lines="1"
+                android:paddingStart="8dp" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:text="Sign Up"
+        android:textSize="18sp"
+        app:cornerRadius="8dp" />
+</RelativeLayout>

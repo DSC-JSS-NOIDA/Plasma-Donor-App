@@ -10,8 +10,8 @@
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
         android:scaleType="fitCenter"
+        android:layout_marginTop="200dp"
         android:src="@drawable/plasma_logo" />
 
     <TextView
@@ -27,31 +27,30 @@
         android:textStyle="bold" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnEmailSignIn"
+        android:id="@+id/btnEmailSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtPlasmaDonor"
+        android:layout_above="@+id/llOR"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginBottom="20dp"
         android:layout_marginRight="20dp"
-        android:background="#004ba0"
-        android:text="Sign in with Email"
+        android:text="Sign up with Email"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="15sp"
-        app:cornerRadius="14dp" />
+        android:padding="10dp"
+        app:backgroundTint="#004ba0"
+        app:cornerRadius="8dp" />
 
     <LinearLayout
         android:id="@+id/llOR"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/btnEmailSignIn"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="42dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_above="@+id/rvSigninButtons"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal">
 
         <View
             android:layout_width="0dp"
@@ -81,28 +80,28 @@
         android:id="@+id/rvSigninButtons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/llOR"
-        android:layout_marginTop="10dp">
+        android:layout_alignBottom="@id/llSignUp"
+        android:gravity="center"
+        android:layout_marginBottom="25dp"
+        android:padding="10dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/tvLoginGmail"
-            android:layout_width="wrap_content"
+            android:id="@+id/googleSignUp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="40dp"
             android:background="?android:attr/selectableItemBackground"
-            android:paddingStart="25dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="25dp"
-            android:paddingBottom="5dp"
+            android:clickable="true"
+            android:focusable="true"
             app:cardBackgroundColor="@color/colorGrayLight"
             app:cardCornerRadius="8dp"
-            app:cardElevation="24dp"
-            app:cardMaxElevation="36dp">
+            app:cardElevation="@dimen/cardview_compat_inset_shadow"
+            app:strokeColor="@color/colorBlack"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <ImageView
                     android:layout_width="35dp"
@@ -121,28 +120,28 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/facebookSignin"
-            android:layout_width="wrap_content"
+            android:id="@+id/facebookSignUp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/googleSignUp"
             android:background="?android:attr/selectableItemBackground"
-            android:paddingStart="25dp"
-            android:paddingTop="5dp"
-            android:paddingEnd="25dp"
-            android:paddingBottom="5dp"
+            android:clickable="true"
+            android:focusable="true"
             app:cardBackgroundColor="@color/colorGrayLight"
             app:cardCornerRadius="8dp"
-            app:cardElevation="24dp"
-            app:cardMaxElevation="36dp">
+            app:cardElevation="@dimen/cardview_compat_inset_shadow"
+            app:strokeColor="@color/colorBlack"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:gravity="center">
 
                 <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
                     android:src="@drawable/facebook_logo" />
 
                 <TextView
@@ -160,23 +159,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@+id/rvSigninButtons">
+        android:layout_alignParentBottom="true"
+        android:id="@+id/llSignUp"
+        android:layout_marginBottom="20dp">
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1.5"
+            android:layout_weight="2"
             android:gravity="end"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:text="Already have an account?"/>
+            android:text="Already have an account?"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
+
         <TextView
+            android:id="@+id/tvSignIn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:text=" Sign in"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-            android:textStyle="bold"
             android:textColor="#004ba0"
-            android:text=" Sign up"/>
+            android:textStyle="bold" />
     </LinearLayout>
-</RelativeLayout>
 
+
+</RelativeLayout>

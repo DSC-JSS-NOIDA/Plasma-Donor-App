@@ -38,8 +38,9 @@
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="15sp"
+        android:padding="10dp"
         app:backgroundTint="#004ba0"
-        app:cornerRadius="14dp" />
+        app:cornerRadius="8dp" />
 
     <LinearLayout
         android:id="@+id/llOR"
@@ -85,7 +86,7 @@
         android:padding="10dp">
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/tvLoginGmail"
+            android:id="@+id/googleSignIn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="?android:attr/selectableItemBackground"
@@ -119,11 +120,11 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
-            android:id="@+id/facebookSignin"
+            android:id="@+id/facebookSignIn"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:layout_toEndOf="@+id/tvLoginGmail"
+            android:layout_toEndOf="@+id/googleSignIn"
             android:background="?android:attr/selectableItemBackground"
             android:clickable="true"
             android:focusable="true"
@@ -167,10 +168,11 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:gravity="end"
-            android:text="Already have an account?"
+            android:text="Does't have an account?"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2" />
 
         <TextView
+            android:id="@+id/tvSignUp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
