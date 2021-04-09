@@ -3,10 +3,8 @@ package project.dscjss.plasmadonor.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import android.view.View.GONE
 import android.view.View.VISIBLE
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
@@ -30,7 +28,7 @@ import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.interfaces.OnBackPressInterface
 
-class MainActivity :
+class MainActivity:
     AppCompatActivity(),
     FragmentChangeInterface,
     NavigationView.OnNavigationItemSelectedListener,
@@ -52,9 +50,9 @@ class MainActivity :
             }
         })
 
-        fabSpeedDial.setMenuListener(object : SimpleMenuListenerAdapter() {
+        fabSpeedDial.setMenuListener(object: SimpleMenuListenerAdapter() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                //TODO: Start some activity
+                // TODO: Start some activity
                 onNavigationItemSelected(menuItem)
                 return true
             }
