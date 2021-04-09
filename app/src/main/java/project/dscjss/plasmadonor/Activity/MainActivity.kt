@@ -28,7 +28,7 @@ import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.interfaces.OnBackPressInterface
 
-class MainActivity:
+class MainActivity :
     AppCompatActivity(),
     FragmentChangeInterface,
     NavigationView.OnNavigationItemSelectedListener,
@@ -50,7 +50,7 @@ class MainActivity:
             }
         })
 
-        fabSpeedDial.setMenuListener(object: SimpleMenuListenerAdapter() {
+        fabSpeedDial.setMenuListener(object : SimpleMenuListenerAdapter() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 // TODO: Start some activity
                 onNavigationItemSelected(menuItem)
@@ -78,7 +78,7 @@ class MainActivity:
         initiate(FeedsFragment())
     }
 
-    override fun changeFragment(fragment: Fragment) {
+    override fun changeFragment(fragment : Fragment) {
 
         if (supportFragmentManager.backStackEntryCount == 0) {
             supportFragmentManager.beginTransaction()
@@ -90,7 +90,7 @@ class MainActivity:
         }
     }
 
-    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+    override fun onNavigationItemSelected(item : MenuItem): Boolean {
         fab_speed_dial.visibility = GONE
         when (item.itemId) {
             R.id.add_donor -> initiate(DonorFormFragment())
@@ -115,8 +115,7 @@ class MainActivity:
         drawerLayout.closeDrawer(GravityCompat.START)
         return true
     }
-
-    private fun initiate(fragment: Fragment) {
+    private fun initiate(fragment : Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.mainFrame, fragment).commit()
     }
