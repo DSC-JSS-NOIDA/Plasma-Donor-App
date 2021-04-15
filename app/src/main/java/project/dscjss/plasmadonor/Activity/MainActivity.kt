@@ -46,14 +46,13 @@ class MainActivity :
             .commit()
 
         val fabSpeedDial = findViewById<FabSpeedDial>(R.id.fab_speed_dial)
-        fabSpeedDial.setMenuListener(object: SimpleMenuListenerAdapter() {
+        fabSpeedDial.setMenuListener(object : SimpleMenuListenerAdapter() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
-                //TODO: Start some activity
+                // TODO: Start some activity
                 onNavigationItemSelected(menuItem)
                 return true
             }
         })
-
     }
     private fun init() {
 
@@ -86,7 +85,7 @@ class MainActivity :
         when (item.itemId) {
             R.id.add_donor -> initiate(DonorFormFragment())
             R.id.add_patient -> initiate(PatientFormFragment())
-            R.id.home ->{
+            R.id.home -> {
                 fab_speed_dial.visibility = VISIBLE
                 initiate(FeedsFragment())
             }
