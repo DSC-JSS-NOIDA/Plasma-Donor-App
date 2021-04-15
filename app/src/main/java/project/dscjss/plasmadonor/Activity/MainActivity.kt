@@ -46,7 +46,7 @@ class MainActivity :
             .commit()
 
         val fabSpeedDial = findViewById<FabSpeedDial>(R.id.fab_speed_dial)
-        fabSpeedDial.setMenuListener(object : SimpleMenuListenerAdapter() {
+        fabSpeedDial.setMenuListener(object: SimpleMenuListenerAdapter() {
             override fun onMenuItemSelected(menuItem: MenuItem): Boolean {
                 //TODO: Start some activity
                 onNavigationItemSelected(menuItem)
