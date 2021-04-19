@@ -79,5 +79,9 @@
     <string name="hospital">Hospital</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Facebook login -->
+    <string name="facebook_app_id">770579600557177</string>
+    <string name="fb_login_protocol_scheme">fb770579600557177</string>
+
 
 </resources>
