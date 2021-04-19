@@ -77,6 +77,8 @@
     <string name="or">or continue with</string>
     <string name="log_in_with_gmail">Log In with Gmail</string>
     <string name="hospital">Hospital</string>
+    <string name="add_patient_call">Add Patient</string>
+    <string name="add_donor_call">Add Donor</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <!-- Facebook login -->
