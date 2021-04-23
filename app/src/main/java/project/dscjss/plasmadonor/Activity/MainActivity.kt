@@ -64,20 +64,16 @@ class MainActivity :
                 .whereEqualTo("uid", firebaseAuth.currentUser!!.uid)
                 .get()
                 .addOnSuccessListener { doc ->
-                    if (doc.documents.size == 0) {
-
-                    } else {
+                    if (doc.documents.size != 0) {
                         parseAndSetUserInfo(doc.documents.first())
                     }
                 }
-                .addOnFailureListener {
-
-                }
+                .addOnFailureListener {}
         }
     }
 
     private fun parseAndSetUserInfo(doc: DocumentSnapshot) {
-        tvName.text = "${doc["FirstName"].toString()} ${doc["LastName"].toString()}"
+        tvName.text = "${doc["FirstName"]} ${doc["LastName"]}"
         UserGender.text = doc["Gender"].toString()
         userEmail.text = doc["Email"].toString()
     }
@@ -176,8 +172,12 @@ class MainActivity :
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-                .onOptionsItemSelected(item)
+        if (ActionBarDrawerToggle(
+                this,
+                drawerLayout,
+                R.string.open,
+                R.string.close
+            ).onOptionsItemSelected(item)
         ) return true
         return super.onOptionsItemSelected(item)
     }
