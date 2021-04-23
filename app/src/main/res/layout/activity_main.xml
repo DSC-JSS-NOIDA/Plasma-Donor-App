@@ -37,8 +37,10 @@
                         style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
                         android:layout_width="match_parent"
                         android:layout_height="?attr/actionBarSize"
-                        android:background="@android:color/transparent"
+                        android:background="@color/colorPrimary"
+                        app:titleTextColor="#ffffff"
                         android:elevation="0dp"
+                        app:subtitleTextColor="#ffffff"
                         app:navigationIcon="@drawable/ic_menu_24"
                         app:title="Home" />
                 </com.google.android.material.appbar.AppBarLayout>
