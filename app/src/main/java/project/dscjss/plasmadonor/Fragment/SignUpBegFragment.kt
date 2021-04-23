@@ -68,18 +68,21 @@ class SignUpBegFragment : Fragment(), View.OnClickListener {
             R.id.facebookSignUp -> {
                 //  Toast.makeText(requireContext(), "SignUp through facebook", Toast.LENGTH_SHORT).show()
                 LoginManager.getInstance().logInWithReadPermissions(activity, mutableListOf("email", "public_profile"))
-                LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-                    override fun onSuccess(loginResult: LoginResult) {
-                        Log.d(
-                            "sp",
-                            loginResult.accessToken.toString()
-                        )
-                        handleFacebookAccessToken(loginResult.accessToken)
-                    }
+                LoginManager.getInstance().registerCallback(
+                    callbackManager,
+                    object : FacebookCallback<LoginResult> {
+                        override fun onSuccess(loginResult: LoginResult) {
+                            Log.d(
+                                "sp",
+                                loginResult.accessToken.toString()
+                            )
+                            handleFacebookAccessToken(loginResult.accessToken)
+                        }
 
-                    override fun onCancel() {}
-                    override fun onError(error: FacebookException) {}
-                })
+                        override fun onCancel() {}
+                        override fun onError(error: FacebookException) {}
+                    }
+                )
             }
         }
     }
@@ -108,7 +111,6 @@ class SignUpBegFragment : Fragment(), View.OnClickListener {
         } else {
             Toast.makeText(requireContext(), "SignUp through facebook", Toast.LENGTH_SHORT).show()
         }
-
     }
 
     override fun onActivityResult(
@@ -120,5 +122,4 @@ class SignUpBegFragment : Fragment(), View.OnClickListener {
         // Pass the activity result back to the Facebook SDK
         callbackManager.onActivityResult(requestCode, resultCode, data)
     }
-
 }
