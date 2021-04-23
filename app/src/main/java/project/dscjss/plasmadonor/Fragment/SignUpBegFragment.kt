@@ -21,7 +21,6 @@ import project.dscjss.plasmadonor.Activity.MainActivity
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 
-
 class SignUpBegFragment : Fragment(), View.OnClickListener {
     lateinit var btnEmailSignUp: MaterialButton
     lateinit var tvSignIn: TextView
@@ -38,11 +37,10 @@ class SignUpBegFragment : Fragment(), View.OnClickListener {
         // Inflate the layout for this fragment
         fragmentChangeInterface = context as FragmentChangeInterface
         // Initialize the facebook sdk
-        FacebookSdk.sdkInitialize(requireContext());
+        FacebookSdk.sdkInitialize(requireContext())
         callbackManager = CallbackManager.Factory.create()
         // Initialize Firebase Auth
         auth = FirebaseAuth.getInstance()
-
         val view = inflater.inflate(R.layout.fragment_sign_up_beg, container, false)
         btnEmailSignUp = view.findViewById<MaterialButton>(R.id.btnEmailSignUp)
         tvSignIn = view.findViewById<TextView>(R.id.tvSignIn)
@@ -72,17 +70,15 @@ class SignUpBegFragment : Fragment(), View.OnClickListener {
                 LoginManager.getInstance().logInWithReadPermissions(activity, mutableListOf("email", "public_profile"))
                 LoginManager.getInstance().registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
                     override fun onSuccess(loginResult: LoginResult) {
-                        Log.d("sp", loginResult.accessToken.toString())
+                        Log.d(
+                            "sp",
+                            loginResult.accessToken.toString()
+                        )
                         handleFacebookAccessToken(loginResult.accessToken)
                     }
 
-                    override fun onCancel() {
-
-                    }
-
-                    override fun onError(error: FacebookException) {
-
-                    }
+                    override fun onCancel() {}
+                    override fun onError(error: FacebookException) {}
                 })
             }
         }
@@ -115,7 +111,11 @@ class SignUpBegFragment : Fragment(), View.OnClickListener {
 
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
         super.onActivityResult(requestCode, resultCode, data)
         // Pass the activity result back to the Facebook SDK
         callbackManager.onActivityResult(requestCode, resultCode, data)
