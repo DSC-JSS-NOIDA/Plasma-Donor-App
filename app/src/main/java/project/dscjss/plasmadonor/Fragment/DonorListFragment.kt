@@ -30,7 +30,6 @@ class DonorListFragment : Fragment(R.layout.donor_list_fragment) {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        requireActivity().title = "Donors"
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 

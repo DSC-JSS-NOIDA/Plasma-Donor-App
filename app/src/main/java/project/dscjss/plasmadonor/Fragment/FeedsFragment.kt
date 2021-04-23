@@ -25,7 +25,6 @@ class FeedsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        requireActivity().title = "Home"
         return inflater.inflate(R.layout.feeds_fragment, container, false)
     }
 

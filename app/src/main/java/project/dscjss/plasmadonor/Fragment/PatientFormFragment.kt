@@ -40,7 +40,6 @@ class PatientFormFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        requireActivity().title = "Patient's Form"
         return inflater.inflate(R.layout.patient_form_fragment, container, false)
     }
 

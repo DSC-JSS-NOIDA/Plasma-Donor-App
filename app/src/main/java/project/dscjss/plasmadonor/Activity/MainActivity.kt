@@ -12,20 +12,17 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.FirebaseFirestore
 import io.github.yavski.fabspeeddial.FabSpeedDial
 import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import project.dscjss.plasmadonor.AboutFragment
-import project.dscjss.plasmadonor.Fragment.FeedsFragment
-import project.dscjss.plasmadonor.Fragment.DonorListFragment
-import project.dscjss.plasmadonor.Fragment.PatientListFragment
-import project.dscjss.plasmadonor.Fragment.DonorFormFragment
-import project.dscjss.plasmadonor.Fragment.PatientFormFragment
-import project.dscjss.plasmadonor.Fragment.ProfileFragment
-import project.dscjss.plasmadonor.Fragment.FaqFragment
-import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
+import project.dscjss.plasmadonor.Fragment.*
 import project.dscjss.plasmadonor.R
+import project.dscjss.plasmadonor.interfaces.FragmentChangeInterface
 import project.dscjss.plasmadonor.interfaces.OnBackPressInterface
+import project.dscjss.plasmadonor.models.ProfileDetail
 
 class MainActivity :
     AppCompatActivity(),
@@ -34,12 +31,15 @@ class MainActivity :
     OnBackPressInterface {
 
     private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var firebaseFirestore: FirebaseFirestore
+    private var detail: ProfileDetail? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         init()
+        ProfileDetailFetch()
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.mainFrame, FeedsFragment())
@@ -54,14 +54,40 @@ class MainActivity :
             }
         })
     }
-    private fun init() {
 
+    private fun ProfileDetailFetch() {
+        if (firebaseAuth.currentUser == null) {
+            startActivity(Intent(this, UserLoginActivity::class.java))
+            finish()
+        } else {
+            firebaseFirestore.collection("users")
+                .whereEqualTo("uid", firebaseAuth.currentUser!!.uid)
+                .get()
+                .addOnSuccessListener { doc ->
+                    if (doc.documents.size == 0) {
+
+                    } else {
+                        parseAndSetUserInfo(doc.documents.first())
+                    }
+                }
+                .addOnFailureListener {
+
+                }
+        }
+    }
+
+    private fun parseAndSetUserInfo(doc: DocumentSnapshot) {
+        tvName.text = "${doc["FirstName"].toString()} ${doc["LastName"].toString()}"
+        UserGender.text = doc["Gender"].toString()
+        userEmail.text = doc["Email"].toString()
+    }
+
+    private fun init() {
+        firebaseFirestore = FirebaseFirestore.getInstance()
         firebaseAuth = FirebaseAuth.getInstance()
         val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
+        setSupportActionBar(topAppBar)
         val toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
-        drawer.addDrawerListener(toggle)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
-        supportActionBar!!.setHomeButtonEnabled(true)
         toggle.syncState()
         nav_view.setNavigationItemSelectedListener(this)
 
@@ -83,19 +109,47 @@ class MainActivity :
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         fab_speed_dial.visibility = GONE
         when (item.itemId) {
-            R.id.add_donor -> initiate(DonorFormFragment())
-            R.id.add_patient -> initiate(PatientFormFragment())
+            R.id.add_donor -> {
+                topAppBar.title = "Add Donor"
+                initiate(DonorFormFragment())
+            }
+            R.id.add_patient -> {
+                topAppBar.title = "Add Patient"
+                initiate(PatientFormFragment())
+            }
             R.id.home -> {
                 fab_speed_dial.visibility = VISIBLE
+                topAppBar.title = "Home"
                 initiate(FeedsFragment())
             }
-            R.id.viewDonors -> initiate(DonorListFragment())
-            R.id.viewPatients -> initiate(PatientListFragment())
-            R.id.addDonor -> initiate(DonorFormFragment())
-            R.id.addPatient -> initiate(PatientFormFragment())
-            R.id.profile -> initiate(ProfileFragment())
-            R.id.faq -> initiate(FaqFragment())
-            R.id.aboutUs -> initiate(AboutFragment())
+            R.id.viewDonors -> {
+                topAppBar.title = "View Donors"
+                initiate(DonorListFragment())
+            }
+            R.id.viewPatients -> {
+                topAppBar.title = "View Patients"
+                initiate(PatientListFragment())
+            }
+            R.id.addDonor -> {
+                topAppBar.title = "Add Donor"
+                initiate(DonorFormFragment())
+            }
+            R.id.addPatient -> {
+                topAppBar.title = "Add Patient"
+                initiate(PatientFormFragment())
+            }
+            R.id.profile -> {
+                topAppBar.title = "Profile"
+                initiate(ProfileFragment())
+            }
+            R.id.faq -> {
+                topAppBar.title = "FAQ"
+                initiate(FaqFragment())
+            }
+            R.id.aboutUs -> {
+                topAppBar.title = "About Us"
+                initiate(AboutFragment())
+            }
             R.id.logout -> {
                 firebaseAuth.signOut()
                 startActivity(Intent(this, UserLoginActivity::class.java))
@@ -123,7 +177,7 @@ class MainActivity :
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
-            .onOptionsItemSelected(item)
+                .onOptionsItemSelected(item)
         ) return true
         return super.onOptionsItemSelected(item)
     }

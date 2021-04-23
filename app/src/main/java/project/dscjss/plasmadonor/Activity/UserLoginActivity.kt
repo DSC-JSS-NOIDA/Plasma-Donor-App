@@ -16,7 +16,7 @@ class UserLoginActivity : AppCompatActivity(), FragmentChangeInterface {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_user_login)
-        supportActionBar!!.hide()
+        //supportActionBar!!.hide()
         // changed the loginFragment() to SignUpBegFragment
         val fragment = SignUpBegFragment()
         supportFragmentManager.beginTransaction()

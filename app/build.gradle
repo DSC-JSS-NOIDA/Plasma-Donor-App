@@ -92,8 +92,10 @@ dependencies {
     // facebook
     implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
     implementation 'com.facebook.android:facebook-login:5.15.3'
-    //For FAB
+    // For FAB
     implementation 'io.github.yavski:fab-speed-dial:1.0.6'
+    // For Circular ImageView
+    implementation 'com.mikhaellopez:circularimageview:4.2.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

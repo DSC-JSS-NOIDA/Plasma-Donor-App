@@ -6,7 +6,7 @@
     <item android:id="@+id/viewDonors"
         android:title="View Donors"/>
     <item android:id="@+id/viewPatients"
-        android:title="ViewPatients"/>
+        android:title="View Patients"/>
     <item android:id="@+id/addDonor"
          android:title="Add Donor"/>
     <item android:id="@+id/addPatient"
@@ -18,6 +18,6 @@
     <item android:id="@+id/aboutUs"
          android:title="About Us"/>
     <item android:id="@+id/logout"
-         android:title="Logout"/>
+         android:title="Log Out"/>
 
 </menu>

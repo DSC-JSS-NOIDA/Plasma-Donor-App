@@ -49,7 +49,6 @@ class ProfileFragment : Fragment() {
     ): View? {
         val view = inflater.inflate(R.layout.profile_fragment, container, false)
         binding = ProfileFragmentBinding.bind(view)
-        requireActivity().title = "Profile"
         return view
     }
 

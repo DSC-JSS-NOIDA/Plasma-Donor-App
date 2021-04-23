@@ -1,53 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout
-    android:id="@+id/drawerLayout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".Activity.MainActivity">
 
-        <FrameLayout
-            android:id="@+id/mainFrame"
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.coordinatorlayout.widget.CoordinatorLayout
-
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
-                <io.github.yavski.fabspeeddial.FabSpeedDial
-                    android:id="@+id/fab_speed_dial"
-                    android:layout_width="wrap_content"
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appBarLayout"
+                    style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="bottom|end"
-                    app:fabGravity="bottom_end"
-                    app:fabMenu="@menu/fab_menu"
-                    app:fabBackgroundTint="@color/colorPrimary"
-                    app:miniFabBackgroundTint="@android:color/white"
-                    app:miniFabDrawableTint="@color/colorPrimaryDark"
-                    app:miniFabTitleTextColor="@color/colorPrimaryDark"/>
+                    android:fitsSystemWindows="true">
 
+                    <com.google.android.material.appbar.MaterialToolbar
+                        android:id="@+id/topAppBar"
+                        style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@android:color/transparent"
+                        android:elevation="0dp"
+                        app:navigationIcon="@drawable/ic_menu_24"
+                        app:title="Home" />
+                </com.google.android.material.appbar.AppBarLayout>
 
-            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+                <FrameLayout
+                    android:id="@+id/mainFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/appBarLayout" />
+            </RelativeLayout>
 
-        </FrameLayout>
+            <io.github.yavski.fabspeeddial.FabSpeedDial
+                android:id="@+id/fab_speed_dial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                app:fabBackgroundTint="@color/colorPrimary"
+                app:fabGravity="bottom_end"
+                app:fabMenu="@menu/fab_menu"
+                app:miniFabBackgroundTint="@android:color/white"
+                app:miniFabDrawableTint="@color/colorPrimaryDark"
+                app:miniFabTitleTextColor="@color/colorPrimaryDark" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    </FrameLayout>
 
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        app:menu="@menu/nav_menu"
-        android:background="@color/colorPrimary"
-        app:itemTextColor="@color/colorWhite"
-        android:layout_gravity="start">
+        android:layout_gravity="start"
+        android:background="@color/colorWhite"
+        android:orientation="vertical">
 
-    </com.google.android.material.navigation.NavigationView>
+        <RelativeLayout
+            android:id="@+id/rlUpper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/imgLogo"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="18dp"
+                android:src="@drawable/plasma_logo" />
+
+            <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/imgLogo"
+                android:text="Your Name"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/llProfileDetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvName"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/imgLogo">
+
+                <TextView
+                    android:id="@+id/UserGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" ◙ " />
+
+                <TextView
+                    android:id="@+id/userEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:text="sitamadex11@gmail.com"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_below="@id/llProfileDetails"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="#000000" />
+        </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rlUpper"
+            app:elevation="0dp"
+            app:itemTextColor="@color/colorBlack"
+            app:menu="@menu/nav_menu" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/plasma_logo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:text="Plasma Donor"
+                android:textColor="#004ba0"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </RelativeLayout>
 </androidx.drawerlayout.widget.DrawerLayout>

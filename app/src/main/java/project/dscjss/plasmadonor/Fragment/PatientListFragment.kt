@@ -30,7 +30,6 @@ class PatientListFragment : Fragment(R.layout.patient_list_fragment) {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        requireActivity().title = "Patients"
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
