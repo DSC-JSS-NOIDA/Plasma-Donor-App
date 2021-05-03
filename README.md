@@ -40,7 +40,7 @@ Table of Contents
 - User can search specifically for Donors.
 - User can search specifically for Patients.
 - User can add Edit Profile.
-- User can see nearby donors/patients in Radar.
+- User can see nearby donors/patients on the Radar.
 - FAQs section to get all details regarding Plasma.
 
 ## Tech Used
@@ -100,7 +100,7 @@ git clone https://github.com/your-username/Plasma-Donor-App.git
 
 ### 7. Create New Branch
 ###### Once the project is opened create a new branch and checkout in it where you can make the changes in the code.
-###### You can do this either from terminal or Directly in Android Studio.
+###### You can do this either from the terminal or Directly in Android Studio.
 ###### To do from Terminal:
 ```
 git branch new-branch
@@ -139,7 +139,7 @@ git remote add upstream https://github.com/DSC-JSS-NOIDA/Plasma-Donor-App
 
 ### 11. Sync the Fork
 ###### Once you have configured a remote that references the upstream and original repository on GitHub, you are ready to sync your fork of the repository to keep it up-to-date.
-To sync your fork, from the directory of your local repository in a terminal window, you’ll have to use the // git fetch // command to fetch the branches along with their respective commits from the upstream repository. Since you used the shortname “upstream” to refer to the upstream repository, you’ll have to pass that to the command:
+To sync your fork, from the directory of your local repository in a terminal window, you’ll have to use the // git fetch // command to fetch the branches along with their respective commits from the upstream repository. Since you used the short name “upstream” to refer to the upstream repository, you’ll have to pass that to the command:
 ``` git fetch upstream ```
 ###### Switch to the local master branch of our repository:
 ``` git checkout master ```
@@ -220,3 +220,4 @@ Our heartiest thanks to these contributors ✨✨:
 		</td>
 	</tr>
 </table>
+
