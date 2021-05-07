@@ -38,19 +38,19 @@ class MainActivity :
             .replace(R.id.mainFrame, FeedsFragment())
             .commit()
         bottom_navigation.setOnItemSelectedListener {
-            lateinit var fragment:Fragment
-            when(it){
-                R.id.btHome->{
-                    fragment=FeedsFragment()
+            lateinit var fragment: Fragment
+            when (it) {
+                R.id.btHome -> {
+                    fragment = FeedsFragment()
                 }
-                R.id.btSearch->{
-                    fragment= SearchFragment()
+                R.id.btSearch -> {
+                    fragment = SearchFragment()
                 }
-                R.id.btMessage->{
-                    fragment= MessageFragment()
+                R.id.btMessage -> {
+                    fragment = MessageFragment()
                 }
-                R.id.btProfile->{
-                    fragment= ProfileFragment()
+                R.id.btProfile -> {
+                    fragment = ProfileFragment()
                 }
             }
             initiate(fragment)

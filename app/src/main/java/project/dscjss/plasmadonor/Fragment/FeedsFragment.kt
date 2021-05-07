@@ -10,8 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import com.google.firebase.auth.FirebaseAuth
 import io.github.yavski.fabspeeddial.FabSpeedDial
 import io.github.yavski.fabspeeddial.SimpleMenuListenerAdapter
-import kotlinx.android.synthetic.main.activity_main.*
-import project.dscjss.plasmadonor.Activity.MainActivity
 import project.dscjss.plasmadonor.R
 import project.dscjss.plasmadonor.ViewModel.FeedsViewModel
 
@@ -44,7 +42,7 @@ class FeedsFragment : Fragment() {
     }
 
     private fun onNavigationItemSelected(menuItem: MenuItem) {
-        fabBtn.visibility=View.GONE
+        fabBtn.visibility = View.GONE
         when (menuItem.itemId) {
             R.id.add_donor -> {
                 initiate(DonorFormFragment())
