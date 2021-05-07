@@ -57,7 +57,7 @@ class MainActivity :
                     initiate(fragment)
                 }
             }
-             true
+            true
         }
     }
 
