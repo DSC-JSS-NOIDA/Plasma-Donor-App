@@ -12,49 +12,49 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-                <com.google.android.material.appbar.AppBarLayout
-                    android:id="@+id/appBarLayout"
-                    style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fitsSystemWindows="true">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            style="@style/Widget.MaterialComponents.AppBarLayout.PrimarySurface"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
 
-                    <com.google.android.material.appbar.MaterialToolbar
-                        android:id="@+id/topAppBar"
-                        style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
-                        android:layout_width="match_parent"
-                        android:layout_height="?attr/actionBarSize"
-                        android:background="@color/colorPrimary"
-                        app:titleTextColor="#ffffff"
-                        android:elevation="0dp"
-                        app:subtitleTextColor="#ffffff"
-                        app:navigationIcon="@drawable/ic_menu_24"
-                        app:title="Home" />
-                </com.google.android.material.appbar.AppBarLayout>
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                style="@style/Widget.MaterialComponents.Toolbar.PrimarySurface"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:elevation="0dp"
+                app:navigationIcon="@drawable/ic_menu_24"
+                app:subtitleTextColor="#ffffff"
+                app:title="Home"
+                app:titleTextColor="#ffffff" />
+        </com.google.android.material.appbar.AppBarLayout>
 
-                <FrameLayout
-                    android:id="@+id/mainFrame"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_above="@+id/bottom"
-                    android:layout_below="@+id/appBarLayout" />
+        <FrameLayout
+            android:id="@+id/mainFrame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom"
+            android:layout_below="@+id/appBarLayout" />
+
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
             android:layout_gravity="bottom"
-            android:background="#e3f2fd"
-            android:layout_alignParentBottom="true">
+            android:background="#ffffff">
 
-            <com.ismaeldivita.chipnavigation.ChipNavigationBar
+            <com.google.android.material.bottomnavigation.BottomNavigationView
                 android:id="@+id/bottom_navigation"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:padding="2dp"
-                app:cnb_badgeColor="@android:color/black"
-                app:cnb_iconSize="30dp"
-                app:cnb_menuResource="@menu/bottom_navigation"
-                app:cnb_unselectedColor="@android:color/black" />
+                app:itemIconTint="@drawable/selector"
+                app:itemTextColor="@drawable/selector"
+                app:menu="@menu/bottom_navigation" />
 
         </com.google.android.material.appbar.AppBarLayout>
     </RelativeLayout>

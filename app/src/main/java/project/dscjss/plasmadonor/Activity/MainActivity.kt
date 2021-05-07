@@ -37,23 +37,27 @@ class MainActivity :
         supportFragmentManager.beginTransaction()
             .replace(R.id.mainFrame, FeedsFragment())
             .commit()
-        bottom_navigation.setOnItemSelectedListener {
+        bottom_navigation.setOnNavigationItemSelectedListener {
             lateinit var fragment: Fragment
-            when (it) {
+            when (it.itemId) {
                 R.id.btHome -> {
                     fragment = FeedsFragment()
+                    initiate(fragment)
                 }
                 R.id.btSearch -> {
                     fragment = SearchFragment()
+                    initiate(fragment)
                 }
                 R.id.btMessage -> {
                     fragment = MessageFragment()
+                    initiate(fragment)
                 }
                 R.id.btProfile -> {
                     fragment = ProfileFragment()
+                    initiate(fragment)
                 }
             }
-            initiate(fragment)
+             true
         }
     }
 
