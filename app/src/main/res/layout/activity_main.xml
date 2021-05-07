@@ -64,7 +64,25 @@
                 app:miniFabDrawableTint="@color/colorPrimaryDark"
                 app:miniFabTitleTextColor="@color/colorPrimaryDark" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#1565c0"
+            android:layout_alignParentBottom="true">
 
+            <com.ismaeldivita.chipnavigation.ChipNavigationBar
+                android:id="@+id/bottom_navigation"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:padding="2dp"
+                app:cnb_badgeColor="@android:color/black"
+                app:cnb_iconSize="30dp"
+                app:cnb_menuResource="@menu/bottom_navigation"
+                app:cnb_unselectedColor="@android:color/black" />
+
+        </com.google.android.material.appbar.AppBarLayout>
     </FrameLayout>
 
     <RelativeLayout
