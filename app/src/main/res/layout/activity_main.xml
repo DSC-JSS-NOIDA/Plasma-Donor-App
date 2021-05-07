@@ -8,22 +8,9 @@
     android:fitsSystemWindows="true"
     tools:context=".Activity.MainActivity">
 
-    <FrameLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <androidx.coordinatorlayout.widget.CoordinatorLayout
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
                 <com.google.android.material.appbar.AppBarLayout
                     android:id="@+id/appBarLayout"
@@ -49,27 +36,14 @@
                     android:id="@+id/mainFrame"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_above="@+id/bottom"
                     android:layout_below="@+id/appBarLayout" />
-            </RelativeLayout>
-
-            <io.github.yavski.fabspeeddial.FabSpeedDial
-                android:id="@+id/fab_speed_dial"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="bottom|end"
-                app:fabBackgroundTint="@color/colorPrimary"
-                app:fabGravity="bottom_end"
-                app:fabMenu="@menu/fab_menu"
-                app:miniFabBackgroundTint="@android:color/white"
-                app:miniFabDrawableTint="@color/colorPrimaryDark"
-                app:miniFabTitleTextColor="@color/colorPrimaryDark" />
-        </androidx.coordinatorlayout.widget.CoordinatorLayout>
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="#1565c0"
+            android:background="#e3f2fd"
             android:layout_alignParentBottom="true">
 
             <com.ismaeldivita.chipnavigation.ChipNavigationBar
@@ -83,7 +57,7 @@
                 app:cnb_unselectedColor="@android:color/black" />
 
         </com.google.android.material.appbar.AppBarLayout>
-    </FrameLayout>
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"

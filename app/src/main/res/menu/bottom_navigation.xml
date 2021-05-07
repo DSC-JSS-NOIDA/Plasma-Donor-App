@@ -1,4 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/btHome"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="Home" />
+    <item
+        android:id="@+id/btSearch"
+        android:icon="@drawable/search"
+        android:title="Search" />
+    <item
+        android:id="@+id/btMessage"
+        android:icon="@drawable/message"
+        android:title="Message" />
+    <item
+        android:id="@+id/btProfile"
+        android:icon="@drawable/ic_baseline_person_24"
+        android:title="Profile" />
 
 </menu>
