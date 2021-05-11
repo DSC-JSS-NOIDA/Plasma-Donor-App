@@ -11,5 +11,6 @@
     <color name="colorGray">#F3606060</color>
     <color name="colorGrayLight">#F4EAEA</color>
     <color name="colorHint">#a8a8a8</color>
+    <color name="backGroundLightBlue">#40e1f5fe</color>
 
 </resources>

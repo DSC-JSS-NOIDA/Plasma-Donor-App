@@ -49,12 +49,12 @@ class PatientListAdapter(
 
         fun bind(patient: Patient) {
             val context = containerView.context
-            tvPatientName.text = context.getString(R.string.list_name, patient.name)
-            tvPatientAge.text = context.getString(R.string.list_age, patient.age)
-            tvPatientLocation.text = context.getString(R.string.list_location, patient.location)
-            tvPatientMobile.text = context.getString(R.string.list_phone, patient.mobile)
-            tvPatientHospital.text = context.getString(R.string.list_hospital, patient.hospital)
-            tvPatientBloodGroup.text = context.getString(R.string.list_blood, patient.bloodGroup)
+            txtNameP.text = patient.name
+            txtLocationP.text = patient.location
+            txtPhoneNumberP.text = patient.mobile
+            txtHospitalP.text = patient.hospital
+            txtBloodGroupP.text = patient.bloodGroup
+            txtGenderP.text = patient.gender
         }
     }
 }

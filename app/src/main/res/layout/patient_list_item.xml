@@ -1,82 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="2dp"
-    android:padding="4dp"
-    app:cardCornerRadius="4dp">
+    android:layout_marginStart="15dp"
+    android:layout_marginTop="7.5dp"
+    android:layout_marginEnd="15dp"
+    android:layout_marginBottom="7.5dp"
+    app:cardCornerRadius="5dp"
+    app:strokeColor="#d3d3d3"
+    app:strokeWidth="0.5dp">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="5dp">
 
-        <TextView
-            android:id="@+id/tvPatientName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            tools:text="Name : " />
-
-        <TextView
-            android:id="@+id/tvPatientLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            tools:text="Location : " />
-
-        <TextView
-            android:id="@+id/tvPatientMobile"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            tools:text="Mobile : " />
-
-        <TextView
-            android:id="@+id/tvPatientHospital"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="1dp"
-            android:textColor="@color/colorBlack"
-            android:textSize="16sp"
-            tools:text="Hospital : " />
+        <com.mikhaellopez.circularimageview.CircularImageView
+            android:id="@+id/imgLogoP"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_centerVertical="true"
+            android:layout_margin="15dp"
+            android:src="@drawable/plasma_logo"
+            app:civ_border="true"
+            app:civ_border_color="@color/colorPrimary"
+            app:civ_border_width="2dp" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_centerVertical="true"
+            android:layout_toEndOf="@+id/imgLogoP"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tvPatientAge"
-                android:layout_width="0dp"
+                android:id="@+id/txtNameP"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="1dp"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                tools:text="Age : " />
+                android:textColor="#000000"
+                android:textSize="22sp"
+                tools:text="Sitam Sardar" />
 
-            <TextView
-                android:id="@+id/tvPatientBloodGroup"
-                android:layout_width="0dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:padding="1dp"
-                android:textColor="@color/colorBlack"
-                android:textSize="16sp"
-                tools:text="Blood Group : " />
+                android:layout_below="@id/txtName"
+                android:layout_toEndOf="@id/imgLogo">
 
+                <TextView
+                    android:id="@+id/txtLocationP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:text="Kolkata" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtGenderP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:text="Male" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" • "
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/txtBloodGroupP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    tools:text="B+" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_phone_24" />
+
+                <TextView
+                    android:id="@+id/txtPhoneNumberP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="9062717912" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_baseline_local_hospital_24" />
+
+                <TextView
+                    android:id="@+id/txtHospitalP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="5dp"
+                    android:text="NRS" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

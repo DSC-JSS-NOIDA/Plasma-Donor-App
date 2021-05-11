@@ -49,11 +49,10 @@ class DonorListAdapter(
 
         fun bind(donor: Donor) {
             val context = containerView.context
-            tvPatientName.text = context.getString(R.string.list_name, donor.name)
-            tvPatientAge.text = context.getString(R.string.list_age, donor.age)
-            tvPatientLocation.text = context.getString(R.string.list_location, donor.location)
-            tvPatientMobile.text = context.getString(R.string.list_phone, donor.mobile)
-            tvPatientBloodGroup.text = context.getString(R.string.list_blood, donor.bloodGroup)
+            txtName.text = donor.name
+            txtLocation.text = donor.location
+            txtGender.text = donor.gender
+            txtBloodGroup.text = donor.bloodGroup
         }
     }
 }
